@@ -1,7 +1,9 @@
 import React from 'react'
 
-const HomePage = () => {
+const HomePage = () => (
   <div>
-    <h1>Herro Wuld</h1>
+    <h1>Cryptiq Home Page</h1>
   </div>
-}
+)
+
+export default HomePage

@@ -1,0 +1,55 @@
+.home-page-header {
+  background: linear-gradient(to bottom right, lighten($minsk, 10%), $minsk);
+  clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 100%);
+  height: 70vh;
+
+  .heading {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+    width: $grid-width;
+
+    &__text {
+      width: 63rem;
+
+        &-primary {
+          font-weight: 500;
+
+        &--main {
+          color: $aquamarine;
+          display: block;
+          font-size: $xxxl-font;
+        }
+
+        &--sub {
+          color: $white;
+          display: block;
+        }
+      }
+    }
+
+    .heading__crypto-icons {
+      display: flex;
+      justify-content: space-between;
+
+      &__icon {
+        animation: floatUpAndDown 3.5s ease-in-out infinite;
+        transform: translateY(-25%);
+        text-align: center;
+        
+        &--2 {
+          animation-delay: .3s;
+        }
+
+        &--3 {
+          animation-delay: .6s;
+        }
+
+        .crypto-icon-img {
+          max-width: 75%;
+        }
+      }
+    }
+  }
+}

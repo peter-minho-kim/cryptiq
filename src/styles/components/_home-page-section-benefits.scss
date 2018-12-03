@@ -1,0 +1,9 @@
+.section-benefits {
+  margin: 0 auto;
+  width: $grid-width;
+
+  &__heading-secondary {
+    font-size: $xxl-font;
+    font-weight: 500;
+  }
+}

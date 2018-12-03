@@ -2,9 +2,8 @@ import React from 'react'
 
 const HomePage = () => (
   <div className="page-wrapper">
-    <div className="home-page-section home-page-section--1">
+    <header className="home-page-header u-margin-bottom-l">
       <div className="heading">
-
         <div className="heading__text">
           <h1 className="heading__text-primary u-margin-bottom-m">
             <span className="heading__text-primary--main">
@@ -16,7 +15,6 @@ const HomePage = () => (
           </h1>
           <a href="#" className="btn btn--white">Buy Coins</a>
         </div>
-
         <div className="heading__crypto-icons">
           <div className="heading__crypto-icons__icon heading__crypto-icons__icon--1">
             <img src="./images/bitcoin-header.png" alt="bitcoin icon" className="crypto-icon-img" />
@@ -28,9 +26,15 @@ const HomePage = () => (
             <img src="./images/iota-header.png" alt="iota icon" className="crypto-icon-img" />
           </div>     
         </div>
+      </div>
+    </header>
+
+    <section className="section-benefits">
+      <h2 className="section-benefits__heading-secondary u-center-text">Why Cryptiq</h2>
+      <div className="section-benefits__cards">
 
       </div>
-    </div>
+    </section>
   </div>
 )
 

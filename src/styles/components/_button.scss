@@ -1,0 +1,15 @@
+.btn {
+  &:link,
+  &:visited {
+    border-radius: 5px;
+    padding: 1.5rem 4rem;
+    text-decoration: none;
+  }
+
+  &--white {
+    background-color: $white;
+    color: $minsk;
+    font-size: $m-font;
+    font-weight: 600;
+  }
+}

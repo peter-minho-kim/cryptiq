@@ -1,0 +1,54 @@
+.coin-cart {
+  background-color: $white;
+  border-radius: 5px;
+  padding: 2rem;
+  width: 100%;
+
+  &__row {
+    align-items: center;
+    border: 1px solid transparent;
+    border-bottom-color: $athens-gray;
+    justify-content: space-between;
+    display: flex;
+    padding: 3rem 0;
+  }
+
+  &__crypto-img-box {
+    height: 7rem;
+    position: relative;
+    width: 7rem;
+  }
+
+  &__img {
+    position: absolute;
+      top: 50%;
+    transform: translateY(-50%);
+    width: 7rem;
+  }
+
+  &__crypto-name {
+    color: $minsk;
+    font-size: $l-font;
+    font-weight: 500;
+  }
+
+  &__crypto-price {
+    color: $boulder;
+    font-size: $d-font;
+  }
+
+  &__input {
+    border: 1px solid lighten($boulder, 30%);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: $d-font;
+    padding: 1rem 2rem;
+    transition: all .3s;
+    width: 12.5rem;
+
+    &:focus {
+      border-color: $minsk;
+      outline: none;
+    }
+  }
+}

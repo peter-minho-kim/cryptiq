@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import moment from 'moment'
 import { Provider } from 'react-redux'
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore'
@@ -8,7 +7,6 @@ import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
 const store = configureStore()
-// const now = moment.now()
 
 const jsx = (
   <Provider store={store}>

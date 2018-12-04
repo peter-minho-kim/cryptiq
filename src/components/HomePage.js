@@ -10,20 +10,20 @@ const HomePage = () => (
               Buy cryptocurrency with intelligence
             </span>
             <span className="heading__text-primary--sub">
-              Crypt<span className="u-brand-iq">IQ</span> is the smartest place to buy cryptocurrency and grow your portfolio.
+              Crypt<span className="u-brand-iq">iQ</span> is the smartest place to buy cryptocurrency and grow your portfolio.
             </span>
           </h1>
-          <a href="#" className="btn btn--white">Buy Coins</a>
+          <a href="/cart" className="btn btn--white">Buy Coins</a>
         </div>
         <div className="heading__crypto-icons">
           <div className="heading__crypto-icons__icon heading__crypto-icons__icon--1">
-            <img src="./images/bitcoin-header.png" alt="bitcoin icon" className="crypto-icon-img" />
+            <img src="./images/bitcoin.png" alt="bitcoin icon" className="crypto-icon-img" />
           </div>
           <div className="heading__crypto-icons__icon heading__crypto-icons__icon--2">
-            <img src="./images/ethereum-header.png" alt="ethereum icon" className="crypto-icon-img" />
+            <img src="./images/ethereum.png" alt="ethereum icon" className="crypto-icon-img" />
           </div>
           <div className="heading__crypto-icons__icon heading__crypto-icons__icon--3">
-            <img src="./images/iota-header.png" alt="iota icon" className="crypto-icon-img" />
+            <img src="./images/iota.png" alt="iota icon" className="crypto-icon-img" />
           </div>     
         </div>
       </div>
@@ -31,7 +31,7 @@ const HomePage = () => (
 
     <section className="section-benefits u-margin-bottom-xl u-center-text">
       <h2 className="section-benefits__heading-secondary">The most trusted digital currency platform</h2>
-      <p className="section-benefits__heading-sub u-margin-bottom-l">Millions of people choose CryptIQ every day</p>
+      <p className="section-benefits__heading-sub u-margin-bottom-l">Millions of people choose CryptiQ every day</p>
       <div className="section-benefits__cards">
         <div className="section-benefits__cards__card">
           <img src="./images/secure-storage.png" alt="secure storage" className="benefit-card-img u-margin-bottom-m" />
@@ -46,7 +46,7 @@ const HomePage = () => (
         <div className="section-benefits__cards__card">
           <img src="./images/best-practices.png" alt="industry best practices" className="benefit-card-img u-margin-bottom-m" />
           <p className="benefit-card-title u-margin-bottom-s">Industry Best Practices</p>
-          <p className="benefit-card-info u-margin-bottom-s">CryptIQ supports a variety of the most popular digital currencies.</p>
+          <p className="benefit-card-info u-margin-bottom-s">CryptiQ supports a variety of the most popular digital currencies.</p>
         </div>
       </div>
     </section>
@@ -73,7 +73,7 @@ const HomePage = () => (
         Getting started is easy
       </h2>
       <p className="heading--sub u-margin-bottom-l">
-        CryptIQ supports a variety of the most popular digital currencies
+        CryptiQ supports a variety of the most popular digital currencies
       </p>
       <div className="get-started-cards u-margin-bottom-l">
         <div className="get-started-cards__card">
@@ -89,7 +89,7 @@ const HomePage = () => (
           <p className="get-started-cards__text">Receive your coins!</p>  
         </div>
       </div>
-      <a href="#" className="btn btn--aquamarine">Get Started</a>
+      <a href="/cart" className="btn btn--aquamarine">Get Started</a>
     </section>
 
     <footer className="footer">

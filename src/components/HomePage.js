@@ -30,9 +30,24 @@ const HomePage = () => (
     </header>
 
     <section className="section-benefits">
-      <h2 className="section-benefits__heading-secondary u-center-text">Why Cryptiq</h2>
+      <h2 className="section-benefits__heading-secondary u-center-text">The most trusted digital currency platform</h2>
+      <p className="section-benefits__heading-sub u-center-text u-margin-bottom-l">Millions of people choose Cryptiq every day</p>
       <div className="section-benefits__cards">
-
+        <div className="section-benefits__cards__card">
+          <img src="./images/secure-storage.png" alt="secure storage" className="benefit-card-img u-margin-bottom-m" />
+          <p className="benefit-card-title u-margin-bottom-s">Secure Storage</p>
+          <p className="benefit-card-info u-margin-bottom-s">We store the vast majority of the digital assets in secure offline storage.</p>
+        </div>
+        <div className="section-benefits__cards__card">
+          <img src="./images/insurance-protected.png" alt="protected by insurance" className="benefit-card-img u-margin-bottom-m" />
+          <p className="benefit-card-title u-margin-bottom-s">Protected by Insurance</p>
+          <p className="benefit-card-info u-margin-bottom-s">Digital currency stored on our servers is covered by our insurance policy.</p>
+        </div>
+        <div className="section-benefits__cards__card">
+          <img src="./images/best-practices.png" alt="industry best practices" className="benefit-card-img u-margin-bottom-m" />
+          <p className="benefit-card-title u-margin-bottom-s">Industry best practices</p>
+          <p className="benefit-card-info u-margin-bottom-s">Cryptiq supports a variety of the most popular digital currencies.</p>
+        </div>
       </div>
     </section>
   </div>

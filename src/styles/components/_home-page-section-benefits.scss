@@ -3,7 +3,38 @@
   width: $grid-width;
 
   &__heading-secondary {
+    color: $east-bay;
     font-size: $xxl-font;
-    font-weight: 500;
+    font-weight: 600;
+  }
+
+  &__heading-sub {
+    color: $boulder;
+    font-size: $l-font;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-around;
+
+    &__card {
+      text-align: center;
+      width: 28rem;
+
+      .benefit-card-img {
+        width: 10rem;
+      }
+
+      .benefit-card-title {
+        color: $east-bay;
+        font-size: $l-font;
+        font-weight: 600;
+      }
+
+      .benefit-card-info {
+        color: $boulder;
+        font-size: $d-font;
+      }
+    }
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 const HomePage = () => (
   <div className="page-wrapper">
+
     <header className="home-page-header u-margin-bottom-l">
       <div className="heading">
         <div className="heading__text">
@@ -29,9 +30,9 @@ const HomePage = () => (
       </div>
     </header>
 
-    <section className="section-benefits">
-      <h2 className="section-benefits__heading-secondary u-center-text">The most trusted digital currency platform</h2>
-      <p className="section-benefits__heading-sub u-center-text u-margin-bottom-l">Millions of people choose Cryptiq every day</p>
+    <section className="section-benefits u-margin-bottom-xl u-center-text">
+      <h2 className="section-benefits__heading-secondary">The most trusted digital currency platform</h2>
+      <p className="section-benefits__heading-sub u-margin-bottom-l">Millions of people choose Cryptiq every day</p>
       <div className="section-benefits__cards">
         <div className="section-benefits__cards__card">
           <img src="./images/secure-storage.png" alt="secure storage" className="benefit-card-img u-margin-bottom-m" />
@@ -45,10 +46,36 @@ const HomePage = () => (
         </div>
         <div className="section-benefits__cards__card">
           <img src="./images/best-practices.png" alt="industry best practices" className="benefit-card-img u-margin-bottom-m" />
-          <p className="benefit-card-title u-margin-bottom-s">Industry best practices</p>
+          <p className="benefit-card-title u-margin-bottom-s">Industry Best Practices</p>
           <p className="benefit-card-info u-margin-bottom-s">Cryptiq supports a variety of the most popular digital currencies.</p>
         </div>
       </div>
+    </section>
+
+    <section className="section-achievements u-margin-bottom-l">
+      <div className="stats-container">
+        <div className="stat">
+          <p className="stat--primary">$42T+</p>
+          <p className="stat--secondary">Digital currency exchanged</p>
+        </div>
+        <div className="stat">
+          <p className="stat--primary">100+</p>
+          <p className="stat--secondary">Countries supported</p>
+        </div>
+        <div className="stat">
+          <p className="stat--primary">80M+</p>
+          <p className="stat--secondary">Customers served</p>
+        </div>
+      </div>
+    </section>
+
+    <section className="section-get-started u-center-text">
+      <h2 className="heading--secondary">
+        Getting started is easy
+      </h2>
+      <p className="heading--sub">
+        Cryptiq supports a variety of the most popular digital currencies
+      </p>
     </section>
   </div>
 )

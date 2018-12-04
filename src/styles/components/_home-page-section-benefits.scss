@@ -18,8 +18,11 @@
     justify-content: space-around;
 
     &__card {
+      -webkit-box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
+              box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
+      padding: 2rem;
       text-align: center;
-      width: 28rem;
+      width: 32rem;
 
       .benefit-card-img {
         width: 10rem;

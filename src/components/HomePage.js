@@ -73,9 +73,30 @@ const HomePage = () => (
       <h2 className="heading--secondary">
         Getting started is easy
       </h2>
-      <p className="heading--sub">
+      <p className="heading--sub u-margin-bottom-l">
         Cryptiq supports a variety of the most popular digital currencies
       </p>
+      <div className="get-started-cards u-margin-bottom-l">
+        <div className="get-started-cards__card">
+          <img src="./images/select-crypto.png" alt="select crypto" className="get-started-cards__img u-margin-bottom-s" />
+          <p className="get-started-cards__text">Select your cryptocurrency</p>  
+        </div>
+        {/*<div className="get-started-cards__line-container">
+          <img src="./images/line.png" alt="line" className="get-started-cards__img--line" />
+</div>*/}
+        <div className="get-started-cards__card">
+          <img src="./images/pay.png" alt="pay with credit card" className="get-started-cards__img u-margin-bottom-s" />
+          <p className="get-started-cards__text">Pay with your credit card</p>  
+        </div>
+        {/*<div className="get-started-cards__line-container">
+          <img src="./images/line.png" alt="line" className="get-started-cards__img--line" />
+</div>*/}
+        <div className="get-started-cards__card">
+          <img src="./images/receive-crypto.png" alt="receive crypto" className="get-started-cards__img u-margin-bottom-s" />
+          <p className="get-started-cards__text">Receive your coins!</p>  
+        </div>
+      </div>
+      <a href="#" className="btn btn--aquamarine">Get Started</a>
     </section>
   </div>
 )

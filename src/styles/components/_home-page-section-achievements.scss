@@ -1,0 +1,27 @@
+.section-achievements {
+  background: linear-gradient(to bottom right, lighten($minsk, 10%), $minsk);
+
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 4rem;
+    width: $grid-width;
+  }
+
+  .stat {
+    text-align: center;
+    width: 24.1rem;
+
+    &--primary {
+      color: $aquamarine;
+      font-size: $xxl-font;
+      font-weight: 700;
+    }
+
+    &--secondary {
+      color: $white;
+      font-size: $m-font;
+    }
+  }
+}

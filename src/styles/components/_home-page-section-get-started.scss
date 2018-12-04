@@ -1,0 +1,43 @@
+.section-get-started {
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: $grid-width;
+
+  .heading--secondary {
+    color: $minsk;
+    font-size: $xxl-font;
+    font-weight: 600;
+  }
+
+  .heading--sub {
+    color: $boulder;
+    font-size: $l-font;
+  }
+
+  .get-started-cards {
+    display: flex;
+    justify-content: space-around;
+
+    &__card {
+      width: 25rem;
+    }
+
+    &__img {
+      width: 10rem;
+
+      &--line {
+        width: 7rem;
+      }
+    }
+
+    &__line-container {
+      margin-top: 4rem;
+    }
+
+    &__text {
+      color: $minsk;
+      font-size: $m-font;
+      font-weight: 600;
+    }
+  }
+}

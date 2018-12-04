@@ -2,16 +2,15 @@ import React from 'react'
 
 const HomePage = () => (
   <div className="page-wrapper">
-
     <header className="home-page-header u-margin-bottom-l">
       <div className="heading">
         <div className="heading__text">
           <h1 className="heading__text-primary u-margin-bottom-m">
             <span className="heading__text-primary--main">
-              Buy cryptocurrency with confidence
+              Buy cryptocurrency with intelligence
             </span>
             <span className="heading__text-primary--sub">
-              Cryptiq is the easiest place to buy cryptocurrency and grow your portfolio.
+              Crypt<span className="u-brand-iq">IQ</span> is the smartest place to buy cryptocurrency and grow your portfolio.
             </span>
           </h1>
           <a href="#" className="btn btn--white">Buy Coins</a>
@@ -32,7 +31,7 @@ const HomePage = () => (
 
     <section className="section-benefits u-margin-bottom-xl u-center-text">
       <h2 className="section-benefits__heading-secondary">The most trusted digital currency platform</h2>
-      <p className="section-benefits__heading-sub u-margin-bottom-l">Millions of people choose Cryptiq every day</p>
+      <p className="section-benefits__heading-sub u-margin-bottom-l">Millions of people choose CryptIQ every day</p>
       <div className="section-benefits__cards">
         <div className="section-benefits__cards__card">
           <img src="./images/secure-storage.png" alt="secure storage" className="benefit-card-img u-margin-bottom-m" />
@@ -47,7 +46,7 @@ const HomePage = () => (
         <div className="section-benefits__cards__card">
           <img src="./images/best-practices.png" alt="industry best practices" className="benefit-card-img u-margin-bottom-m" />
           <p className="benefit-card-title u-margin-bottom-s">Industry Best Practices</p>
-          <p className="benefit-card-info u-margin-bottom-s">Cryptiq supports a variety of the most popular digital currencies.</p>
+          <p className="benefit-card-info u-margin-bottom-s">CryptIQ supports a variety of the most popular digital currencies.</p>
         </div>
       </div>
     </section>
@@ -69,28 +68,22 @@ const HomePage = () => (
       </div>
     </section>
 
-    <section className="section-get-started u-center-text">
+    <section className="section-get-started u-center-text u-margin-bottom-xl">
       <h2 className="heading--secondary">
         Getting started is easy
       </h2>
       <p className="heading--sub u-margin-bottom-l">
-        Cryptiq supports a variety of the most popular digital currencies
+        CryptIQ supports a variety of the most popular digital currencies
       </p>
       <div className="get-started-cards u-margin-bottom-l">
         <div className="get-started-cards__card">
           <img src="./images/select-crypto.png" alt="select crypto" className="get-started-cards__img u-margin-bottom-s" />
           <p className="get-started-cards__text">Select your cryptocurrency</p>  
         </div>
-        {/*<div className="get-started-cards__line-container">
-          <img src="./images/line.png" alt="line" className="get-started-cards__img--line" />
-</div>*/}
         <div className="get-started-cards__card">
           <img src="./images/pay.png" alt="pay with credit card" className="get-started-cards__img u-margin-bottom-s" />
           <p className="get-started-cards__text">Pay with your credit card</p>  
         </div>
-        {/*<div className="get-started-cards__line-container">
-          <img src="./images/line.png" alt="line" className="get-started-cards__img--line" />
-</div>*/}
         <div className="get-started-cards__card">
           <img src="./images/receive-crypto.png" alt="receive crypto" className="get-started-cards__img u-margin-bottom-s" />
           <p className="get-started-cards__text">Receive your coins!</p>  
@@ -98,6 +91,10 @@ const HomePage = () => (
       </div>
       <a href="#" className="btn btn--aquamarine">Get Started</a>
     </section>
+
+    <footer className="footer">
+
+    </footer>
   </div>
 )
 

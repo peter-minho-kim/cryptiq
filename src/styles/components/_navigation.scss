@@ -1,0 +1,22 @@
+.nav-wrapper {
+  background-color: transparent;
+  padding: 2rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav {
+  margin: 0 auto;
+  width: $grid-width;
+
+  &__link, &__link:active {
+    color: $white;
+    font-size: $d-font;
+    text-decoration: none;
+  }
+
+  &__link:not(:last-child) {
+    margin-right: 2rem;
+  }
+}

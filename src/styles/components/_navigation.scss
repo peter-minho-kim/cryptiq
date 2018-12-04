@@ -11,12 +11,19 @@
   width: $grid-width;
 
   &__link, &__link:active {
+    border: 1px solid transparent;
+    border-radius: 5px;
     color: $white;
     font-size: $d-font;
+    padding: 1rem;
     text-decoration: none;
   }
 
   &__link:not(:last-child) {
     margin-right: 2rem;
   }
+}
+
+.is-active {
+  border-color: $white;
 }

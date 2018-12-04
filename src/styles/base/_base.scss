@@ -8,6 +8,7 @@
 
 html {
   font-size: 62.5%;
+  height: 100%;
 
   @include respond-1800-width {
     font-size: 75%;
@@ -23,6 +24,7 @@ html {
 }
 
 body {
+  background: linear-gradient(to bottom right, lighten($minsk, 10%), $minsk);
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   line-height: 1.7;

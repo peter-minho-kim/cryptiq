@@ -1,7 +1,7 @@
 import React from 'react'
 
 const HomePage = () => (
-  <div className="page-wrapper">
+  <div className="home-page-wrapper">
     <header className="home-page-header u-margin-bottom-l">
       <div className="heading">
         <div className="heading__text">

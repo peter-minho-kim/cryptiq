@@ -15,7 +15,7 @@ export const setBTC = (amount) => ({
 })
 
 // INCREMENT_ETH
-export const incrmentETH = () => ({
+export const incrementETH = () => ({
   type: 'INCREMENT_ETH'
 })
 

@@ -18,18 +18,16 @@ class CoinCart extends React.Component {
   }
   onBtcInput = (e) => {
     const btcInput = e.target.value
-    // ^[0-9]*$
-    // ^[1-9][0-9]*$
-    // ^\d{1,}(\.\d{0,3})?$
-    if (!btcInput || btcInput.match(/^[0-9]{1,3}$/)) {
+    if (btcInput.match(/^\d{0,3}?$/)) {
       this.setState(() => ({ btc: btcInput }))
       this.props.setBTC(btcInput)
     }
   }
   onBtcIncrement = () => {
-    this.setState((prevState) => ({ btc: parseFloat(prevState.btc) + 1.0 }))
-    this.props.incrementBTC()
-    console.log(typeof this.state.btc)
+    if (this.state.btc < 999) {
+      this.setState((prevState) => ({ btc: parseFloat(prevState.btc) + 1.0 }))
+      this.props.incrementBTC()
+    }
   }
   onBtcDecrement = () => {
     if (this.state.btc > 1) {
@@ -41,16 +39,44 @@ class CoinCart extends React.Component {
   }
   onEthInput = (e) => {
     const ethInput = e.target.value
-    if (!ethInput || ethInput.match(/^\d{1,}(\.\d{0,3})?$/)) {
+    if (ethInput.match(/^\d{0,3}?$/)) {
       this.setState(() => ({ eth: ethInput }))
       this.props.setETH(ethInput)
     }
   }
+  onEthIncrement = () => {
+    if (this.state.eth < 999) {
+      this.setState((prevState) => ({ eth: parseInt(prevState.eth) + 1.0 }))
+      this.props.incrementETH()
+    }
+  }
+  onEthDecrement = () => {
+    if (this.state.eth > 1) {
+      this.setState((prevState) => ({ eth: parseInt(prevState.eth - 1.0) }))
+      this.props.decrementETH()
+    } else {
+      this.setState(() => ({ eth: 0 }))
+    }
+  }
   onIotaInput = (e) => {
     const iotaInput = e.target.value
-    if (!iotaInput || iotaInput.match(/^\d{1,}(\.\d{0,3})?$/)) {
+    if (iotaInput.match(/^\d{0,3}?$/)) {
       this.setState(() => ({ iota: iotaInput }))
       this.props.setIOTA(iotaInput)
+    }
+  }
+  onIotaIncrement = () => {
+    if (this.state.iota < 999) {
+      this.setState((prevState) => ({ iota: parseInt(prevState.iota) + 1.0 }))
+      this.props.incrementIOTA()
+    }
+  }
+  onIotaDecrement = () => {
+    if (this.state.iota > 1) {
+      this.setState((prevState) => ({ iota: parseInt(prevState.iota - 1.0) }))
+      this.props.decrementIOTA()
+    } else {
+      this.setState(() => ({ iota: 0 }))
     }
   }
   componentDidMount() {
@@ -91,7 +117,7 @@ class CoinCart extends React.Component {
             <p className="coin-cart__crypto-price">$4,321.99</p>
           </div>
           <div className="coin-cart__input-box">
-            <i className="fas fa-minus coin-cart__math-btn"></i>
+            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onEthDecrement}></i>
             <input 
               type="text" 
               className="coin-cart__input" 
@@ -99,7 +125,7 @@ class CoinCart extends React.Component {
               value={this.state.eth} 
               placeholder="0"
             />
-            <i className="fas fa-plus coin-cart__math-btn"></i>
+            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
           </div>
           <div className="coin-cart__line-total">
             <p className="coin-cart__line-total__number">$4,321.99</p>
@@ -114,7 +140,7 @@ class CoinCart extends React.Component {
             <p className="coin-cart__crypto-price">$4,321.99</p>
           </div>
           <div className="coin-cart__input-box">
-            <i className="fas fa-minus coin-cart__math-btn"></i>
+            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onIotaDecrement}></i>
             <input 
               type="text" 
               className="coin-cart__input" 
@@ -122,7 +148,7 @@ class CoinCart extends React.Component {
               value={this.state.iota} 
               placeholder="0"
             />
-            <i className="fas fa-plus coin-cart__math-btn"></i>
+            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
           </div>
           <div className="coin-cart__line-total">
             <p className="coin-cart__line-total__number">$4,321.99</p>

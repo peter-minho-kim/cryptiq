@@ -40,6 +40,7 @@
   &__input {
     border: 1px solid lighten($boulder, 30%);
     border-radius: 5px;
+    color: $minsk;
     font-family: inherit;
     font-size: $d-font;
     margin: 0 2rem;
@@ -64,7 +65,7 @@
 
     &:hover {
       background-color: $athens-gray;
-      color: darken($boulder, 20%);
+      color: $minsk;
     }
 
     &:active {

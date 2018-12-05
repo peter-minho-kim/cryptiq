@@ -45,8 +45,9 @@
     font-size: $d-font;
     margin: 0 2rem;
     padding: 1rem 2rem;
+    text-align: center;
     transition: all .3s;
-    width: 12.5rem;
+    width: 7rem;
 
     &:focus {
       border-color: $minsk;

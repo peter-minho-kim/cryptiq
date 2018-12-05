@@ -35,38 +35,58 @@
 
   &-info {
     background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $manatee;
+    border: 1px solid transparent;
+    border-bottom-color: $manatee;
     color: $white;
     font-family: inherit;
-    font-size: $d-font;
+    font-size: $m-font;
     padding: 1rem 0;
-
-    &__label {
-      color: $manatee;
-      font-size: $s-font;
-    }
+    transition: all .3s;
 
     &:focus {
+      border-bottom-color: $white;
       outline: none;
     }
 
-    &__name {
+    &__label {
+      color: $manatee;
       display: block;
+      font-size: $s-font;
+    }
+
+    &__name {
       width: 100%;
     }
 
     &__number {
-      width: 25%;
+      width: 7.5rem;
 
       &:not(:last-child) {
         margin-right: 1.5rem;
       }
     }
+
+    &__exp-date {
+      width: 6rem;
+    }
+
+    &__exp-date {
+      
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+
+    &__wallet {
+      font-size: $d-font;
+      width: 100%;
+    }
   }
 
   &__cc-no-box {
       display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
 }
 
@@ -92,5 +112,18 @@
   &__name, &__date {
     color: $white;
     font-size: $d-font;
+  }
+}
+
+.input-group {
+  margin-bottom: 4rem;
+
+  &--exp-cvv {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__exp-date {
+    margin-right: 2rem;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class Payment extends React.Component {
   constructor() {
@@ -10,13 +11,16 @@ class Payment extends React.Component {
       ccInputThree: '',
       ccInputFour: '',
       ccName: '',
-      ccDate: '01/19'
+      ccMonth: '',
+      ccYear: ''
     }
     this.onNameChange = this.onNameChange.bind(this)
     this.onCCOneChange = this.onCCOneChange.bind(this)
     this.onCCTwoChange = this.onCCTwoChange.bind(this)
     this.onCCThreeChange = this.onCCThreeChange.bind(this)
     this.onCCFourChange = this.onCCFourChange.bind(this)
+    this.onMonthChange = this.onMonthChange.bind(this)
+    this.onYearChange = this.onYearChange.bind(this)
   }
   onNameChange(e) {
     const name = e.target.value
@@ -38,13 +42,23 @@ class Payment extends React.Component {
     const numbers = e.target.value
     this.setState(() => ({ ccInputFour: numbers }))
   }
+  onMonthChange(e) {
+    const month = e.target.value
+    this.setState(() => ({ ccMonth: month }))
+  }
+  onYearChange(e) {
+    const year = e.target.value
+    this.setState(() => ({ ccYear: year }))
+  }
+  componentDidMount() {
+    console.log(this.props.btcCart.btc)
+  }
   render() {
     return (
       <form className="payment">
-        <h3 className="payment__heading u-margin-bottom-m">
+        <h3 className="payment__heading u-margin-bottom-s-m">
           Card Details
           </h3>
-        <p className="payment__type u-margin-bottom-m">Card Type</p>
         <div className="payment__mock u-margin-bottom-m">
           <div className="payment__mock__card">
             <p className="payment__mock__card__type u-margin-bottom-s-m">
@@ -58,7 +72,9 @@ class Payment extends React.Component {
             </div>
             <div className="mock-name-exp">
               <p className="mock-name-exp__name" ref="mockName">{this.state.ccName ? this.state.ccName : 'Your Name'}</p>
-              <p className="mock-name-exp__date">{this.state.ccDate}</p>
+              <p className="mock-name-exp__date">
+                {this.state.ccMonth ? this.state.ccMonth : 'MM'} / {this.state.ccYear ? this.state.ccYear : 'YY'}
+              </p>
             </div>
           </div>
         </div>
@@ -66,7 +82,7 @@ class Payment extends React.Component {
           <label className="payment-info__label" htmlFor="cc-name">Name on Card</label>
           <input 
             type="text" 
-            className="payment-info payment-info__name u-margin-bottom-m" 
+            className="payment-info payment-info__name" 
             id="cc-name" 
             value={this.state.ccName}
             onChange={this.onNameChange}
@@ -76,43 +92,124 @@ class Payment extends React.Component {
         </div>
         <div className="input-group">
           <label className="payment-info__label" htmlFor="cc-number-1">Card Number</label>
-          <div className="payment__cc-no-box">
+          <div className="payment__cc-no-box u-margin-bottom-m">
             <input 
               type="text" 
-              className="payment-info payment-info__number u-margin-bottom-m" 
+              className="payment-info payment-info__number" 
               id="cc-number-1" 
               placeholder="0000" 
               onChange={this.onCCOneChange}
+              autoComplete="off"
             />
             <input 
               type="text" 
-              className="payment-info payment-info__number u-margin-bottom-m" 
-              id="cc-number-2" 
+              className="payment-info payment-info__number" 
               placeholder="1234" 
               onChange={this.onCCTwoChange}
+              autoComplete="off"
             />
             <input 
               type="text" 
-              className="payment-info payment-info__number u-margin-bottom-m" 
-              id="cc-number-3" 
+              className="payment-info payment-info__number" 
               placeholder="5678" 
               onChange={this.onCCThreeChange}
+              autoComplete="off"
             />
             <input 
               type="text" 
-              className="payment-info payment-info__number u-margin-bottom-m" 
-              id="cc-number-4" 
+              className="payment-info payment-info__number" 
               placeholder="9123" 
               onChange={this.onCCFourChange}
+              autoComplete="off"
             />
           </div>
         </div>
 
-        <input type="text" className="payment-info payment-info__exp-month" />
+        <div className="input-group input-group--exp-cvv">
+          <div className="input-group__exp-date">
+            <label className="payment-info__label" htmlFor="exp-month">Expiration Date</label>
+            <input 
+              type="text" 
+              className="payment-info payment-info__exp-date" 
+              id="exp-month" 
+              placeholder="MM" 
+              onChange={this.onMonthChange}
+              autoComplete="off"
+            />
+            <input 
+              type="text" 
+              className="payment-info payment-info__exp-date" 
+              placeholder="YY" 
+              onChange={this.onYearChange}
+              autoComplete="off"
+            />
+          </div>
+          <div className="input-group__cvv">
+            <label htmlFor="" className="payment-info__label">CVV</label>
+            <input 
+              type="text"
+              className="payment-info payment-info__cvv" 
+              placeholder="XXX"
+              autoComplete="off"
+            />
+          </div>
+        </div>
 
+        {this.props.btcCart.btc > 0 ? 
+          <div className="input-group">
+            <label htmlFor="btc-address" className="payment-info__label">Bitcoin Wallet</label>
+            <input 
+              type="text" 
+              className="payment-info payment-info__wallet" 
+              id="btc-address" 
+              placeholder="3FkenCiXpSLqD8L79intRNXUgjRoH9sjXa"
+              autoComplete="off"
+            />
+          </div> 
+          :
+          undefined
+        }
+
+        {this.props.ethCart.eth > 0 ? 
+          <div className="input-group">
+            <label htmlFor="eth-address" className="payment-info__label">Ethereum Wallet</label>
+            <input 
+              type="text" 
+              className="payment-info payment-info__wallet" 
+              id="eth-address" 
+              placeholder="AeZ7rXGtQSPIOrKOseD2tWSjfJpD4RNgH"
+              autoComplete="off"
+            />
+          </div> 
+          :
+          undefined
+        }
+        
+        {this.props.iotaCart.iota > 0 ? 
+          <div className="input-group">
+            <label htmlFor="iota-address" className="payment-info__label">Iota Wallet</label>
+            <input 
+              type="text" 
+              className="payment-info payment-info__wallet" 
+              id="iota-address" 
+              placeholder="M4hqJu99UPwcydNH9w4NvVyu3XpSXU"
+              autoComplete="off"
+            />
+          </div> 
+          :
+          undefined
+        }
+
+        <button className="form-button">Check Out</button>
       </form>
     )
   }
 }
 
-export default Payment
+const mapStateToProps = (state) => ({
+  btcCart: state.btc,
+  ethCart: state.eth,
+  iotaCart: state.iota
+})
+
+export default connect(mapStateToProps)(Payment)

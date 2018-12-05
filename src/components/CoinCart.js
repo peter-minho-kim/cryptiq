@@ -34,12 +34,10 @@ class CoinCart extends React.Component {
     }
   }
   onBtcDecrement = () => {
-    if (this.state.btcQty > 1) {
+    if (this.state.btcQty > 0) {
       this.setState((prevState) => ({ btcQty: parseInt(prevState.btcQty) - 1 }))
       this.props.decrementBTC()
-    } else {
-      this.setState(() => ({ btcQty: 0 }))
-    }
+    } 
   }
   onEthInput = (e) => {
     const ethInput = e.target.value
@@ -55,11 +53,9 @@ class CoinCart extends React.Component {
     }
   }
   onEthDecrement = () => {
-    if (this.state.ethQty > 1) {
+    if (this.state.ethQty > 0) {
       this.setState((prevState) => ({ ethQty: parseInt(prevState.ethQty) - 1 }))
       this.props.decrementETH()
-    } else {
-      this.setState(() => ({ ethQty: 0 }))
     }
   }
   onIotaInput = (e) => {
@@ -76,11 +72,9 @@ class CoinCart extends React.Component {
     }
   }
   onIotaDecrement = () => {
-    if (this.state.iotaQty > 1) {
+    if (this.state.iotaQty > 0) {
       this.setState((prevState) => ({ iotaQty: parseInt(prevState.iotaQty) - 1 }))
       this.props.decrementIOTA()
-    } else {
-      this.setState(() => ({ iotaQty: 0 }))
     }
   }
   // componentWillMount() {

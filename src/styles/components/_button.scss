@@ -2,6 +2,7 @@
   &:link,
   &:visited {
     border-radius: 10rem;
+    font-size: $m-font;
     padding: 1.5rem 4rem;
     text-decoration: none;
   }
@@ -9,14 +10,24 @@
   &--white {
     background-color: $white;
     color: $minsk;
-    font-size: $m-font;
     font-weight: 600;
   }
 
   &--aquamarine {
     background-color: $minsk;
     color: $white;
-    font-size: $m-font;
     font-weight: 600;
   }
+}
+
+.form-button {
+  background-color: $athens-gray;
+  border: none;
+  border-radius: 5px;
+  color: $minsk;
+  display: block;
+  font-family: inherit;
+  font-size: $m-font;
+  margin: 0 auto;
+  padding: 1.5rem 4rem;
 }

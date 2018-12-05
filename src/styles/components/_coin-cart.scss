@@ -10,7 +10,7 @@
     border-bottom-color: $athens-gray;
     justify-content: space-between;
     display: flex;
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
 
   &__crypto-img-box {
@@ -42,6 +42,7 @@
     border-radius: 5px;
     font-family: inherit;
     font-size: $d-font;
+    margin: 0 2rem;
     padding: 1rem 2rem;
     transition: all .3s;
     width: 12.5rem;
@@ -50,5 +51,28 @@
       border-color: $minsk;
       outline: none;
     }
+  }
+
+  &__math-btn {
+    background-color: transparent;
+    border-radius: 50%;
+    color: lighten($boulder, 20%);
+    cursor: pointer;
+    font-size: $s-font;
+    padding: 1rem;
+    transition: all .3s;
+
+    &:hover {
+      background-color: $athens-gray;
+      color: darken($boulder, 20%);
+    }
+
+    &:active {
+      background-color: darken($athens-gray, 10%);
+    }
+  }
+
+  &__line-total__number {
+    font-size: $m-font;
   }
 }

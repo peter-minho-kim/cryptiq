@@ -1,9 +1,57 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {
+  incrementBTC, incrementETH, incrementIOTA,
+  decrementBTC, decrementETH, decrementIOTA,
+  setBTC, setETH, setIOTA
+} from '../actions/cart'
 
 class CoinCart extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      btc: this.props.btcCart.btc,
+      eth: this.props.ethCart.eth,
+      iota: this.props.iotaCart.iota
+    }
+  }
+  onBtcInput = (e) => {
+    const btcInput = e.target.value
+    // ^[0-9]*$
+    // ^[1-9][0-9]*$
+    // ^\d{1,}(\.\d{0,3})?$
+    if (!btcInput || btcInput.match(/^[0-9]{1,3}$/)) {
+      this.setState(() => ({ btc: btcInput }))
+      this.props.setBTC(btcInput)
+    }
+  }
+  onBtcIncrement = () => {
+    this.setState((prevState) => ({ btc: parseFloat(prevState.btc) + 1.0 }))
+    this.props.incrementBTC()
+    console.log(typeof this.state.btc)
+  }
+  onBtcDecrement = () => {
+    if (this.state.btc > 1) {
+      this.setState((prevState) => ({ btc: parseFloat(prevState.btc - 1.0) }))
+      this.props.decrementBTC()
+    } else {
+      this.setState(() => ({ btc: 0 }))
+    }
+  }
+  onEthInput = (e) => {
+    const ethInput = e.target.value
+    if (!ethInput || ethInput.match(/^\d{1,}(\.\d{0,3})?$/)) {
+      this.setState(() => ({ eth: ethInput }))
+      this.props.setETH(ethInput)
+    }
+  }
+  onIotaInput = (e) => {
+    const iotaInput = e.target.value
+    if (!iotaInput || iotaInput.match(/^\d{1,}(\.\d{0,3})?$/)) {
+      this.setState(() => ({ iota: iotaInput }))
+      this.props.setIOTA(iotaInput)
+    }
   }
   componentDidMount() {
     console.log(this.props)
@@ -20,10 +68,18 @@ class CoinCart extends React.Component {
             <p className="coin-cart__crypto-price">$4,321.99</p>
           </div>
           <div className="coin-cart__input-box">
-            <input type="text" className="coin-cart__input" />
+            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onBtcDecrement}></i>
+            <input 
+              type="text" 
+              className="coin-cart__input" 
+              onChange={this.onBtcInput} 
+              value={this.state.btc} 
+              placeholder="0"
+            />
+            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
           </div>
           <div className="coin-cart__line-total">
-            $4,321.99
+            <p className="coin-cart__line-total__number">$4,321.99</p>
           </div>
         </div>
         <div className="coin-cart__row">
@@ -35,10 +91,18 @@ class CoinCart extends React.Component {
             <p className="coin-cart__crypto-price">$4,321.99</p>
           </div>
           <div className="coin-cart__input-box">
-            <input type="text" className="coin-cart__input" />
+            <i className="fas fa-minus coin-cart__math-btn"></i>
+            <input 
+              type="text" 
+              className="coin-cart__input" 
+              onChange={this.onEthInput} 
+              value={this.state.eth} 
+              placeholder="0"
+            />
+            <i className="fas fa-plus coin-cart__math-btn"></i>
           </div>
           <div className="coin-cart__line-total">
-            $4,321.99
+            <p className="coin-cart__line-total__number">$4,321.99</p>
           </div>
         </div>
         <div className="coin-cart__row">
@@ -50,10 +114,18 @@ class CoinCart extends React.Component {
             <p className="coin-cart__crypto-price">$4,321.99</p>
           </div>
           <div className="coin-cart__input-box">
-            <input type="text" className="coin-cart__input" />
+            <i className="fas fa-minus coin-cart__math-btn"></i>
+            <input 
+              type="text" 
+              className="coin-cart__input" 
+              onChange={this.onIotaInput} 
+              value={this.state.iota} 
+              placeholder="0"
+            />
+            <i className="fas fa-plus coin-cart__math-btn"></i>
           </div>
           <div className="coin-cart__line-total">
-            $4,321.99
+            <p className="coin-cart__line-total__number">$4,321.99</p>
           </div>
         </div>
       </div>

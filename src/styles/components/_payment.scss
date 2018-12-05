@@ -1,0 +1,95 @@
+.payment {
+  background-color: $mako;
+  border-radius: 5px;
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  width: 43rem;
+
+  &__heading {
+    color: $white;
+    font-size: $lr-font;
+    font-weight: 500;
+  }
+
+  &__type {
+    color: $manatee;
+    font-size: $s-font;
+    font-weight: 500;
+  }
+
+  &__mock {
+
+    &__card {
+      background-color: $manatee;
+      border-radius: 5px;
+      padding: 1rem 2rem;
+      width: 29rem;
+
+      &__type {
+        color: $white;
+        font-size: $l-font;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &-info {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $manatee;
+    color: $white;
+    font-family: inherit;
+    font-size: $d-font;
+    padding: 1rem 0;
+
+    &__label {
+      color: $manatee;
+      font-size: $s-font;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &__name {
+      display: block;
+      width: 100%;
+    }
+
+    &__number {
+      width: 25%;
+
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  &__cc-no-box {
+      display: flex;
+    }
+}
+
+.mock-cc-numbers {
+  display: flex;
+  justify-content: space-between;
+
+  .mock-cc-no {
+    color: $white;
+    font-size: $d-font;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+.mock-name-exp {
+  display: flex;
+  justify-content: space-between;
+
+  &__name, &__date {
+    color: $white;
+    font-size: $d-font;
+  }
+}

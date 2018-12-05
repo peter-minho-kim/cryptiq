@@ -5,6 +5,7 @@ import {
   decrementBTC, decrementETH, decrementIOTA,
   setBTC, setETH, setIOTA
 } from '../actions/cart'
+import Payment from './Payment'
 
 class CoinCart extends React.Component {
   constructor(props) {
@@ -143,77 +144,82 @@ class CoinCart extends React.Component {
   render() {
     return (
       <div className="coin-cart">
-        <div className="coin-cart__row">
-          <div className="coin-cart__crypto-img-box">
-            <img src="./images/bitcoin.png" alt="bitcoin" className="coin-cart__img" />
+        <div className="coin-cart-selection">
+          <div className="coin-cart__row">
+            <div className="coin-cart__crypto-img-box">
+              <img src="./images/btc.png" alt="bitcoin" className="coin-cart__img" />
+            </div>
+            <div className="coin-cart__crypto-info">
+              <p className="coin-cart__crypto-name">Bitcoin (BTC)</p>
+              <p className="coin-cart__crypto-price">${this.state.btcPrice}</p>
+            </div>
+            <div className="coin-cart__input-box">
+              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onBtcDecrement}></i>
+              <input 
+                type="text" 
+                className="coin-cart__input" 
+                onChange={this.onBtcInput} 
+                value={this.state.btcQty} 
+                placeholder="0"
+              />
+              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
+            </div>
+            <div className="coin-cart__line-total">
+              <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2)}</p>
+            </div>
           </div>
-          <div className="coin-cart__crypto-info">
-            <p className="coin-cart__crypto-name">Bitcoin (BTC)</p>
-            <p className="coin-cart__crypto-price">${this.state.btcPrice}</p>
+          
+          <div className="coin-cart__row">
+            <div className="coin-cart__crypto-img-box">
+              <img src="./images/eth.png" alt="ethereum" className="coin-cart__img" />
+            </div>
+            <div className="coin-cart__crypto-info">
+              <p className="coin-cart__crypto-name">Ethereum (ETH)</p>
+              <p className="coin-cart__crypto-price">${this.state.ethPrice}</p>
+            </div>
+            <div className="coin-cart__input-box">
+              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onEthDecrement}></i>
+              <input 
+                type="text" 
+                className="coin-cart__input" 
+                onChange={this.onEthInput} 
+                value={this.state.ethQty} 
+                placeholder="0"
+              />
+              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
+            </div>
+            <div className="coin-cart__line-total">
+              <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2)}</p>
+            </div>
           </div>
-          <div className="coin-cart__input-box">
-            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onBtcDecrement}></i>
-            <input 
-              type="text" 
-              className="coin-cart__input" 
-              onChange={this.onBtcInput} 
-              value={this.state.btcQty} 
-              placeholder="0"
-            />
-            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
-          </div>
-          <div className="coin-cart__line-total">
-            <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2)}</p>
-          </div>
-        </div>
-        
-        <div className="coin-cart__row">
-          <div className="coin-cart__crypto-img-box">
-            <img src="./images/bitcoin.png" alt="bitcoin" className="coin-cart__img" />
-          </div>
-          <div className="coin-cart__crypto-info">
-            <p className="coin-cart__crypto-name">Ethereum (ETH)</p>
-            <p className="coin-cart__crypto-price">${this.state.ethPrice}</p>
-          </div>
-          <div className="coin-cart__input-box">
-            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onEthDecrement}></i>
-            <input 
-              type="text" 
-              className="coin-cart__input" 
-              onChange={this.onEthInput} 
-              value={this.state.ethQty} 
-              placeholder="0"
-            />
-            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
-          </div>
-          <div className="coin-cart__line-total">
-            <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2)}</p>
+
+          <div className="coin-cart__row">
+            <div className="coin-cart__crypto-img-box">
+              <img src="./images/miota.png" alt="iota" className="coin-cart__img" />
+            </div>
+            <div className="coin-cart__crypto-info">
+              <p className="coin-cart__crypto-name">Iota (MIOTA)</p>
+              <p className="coin-cart__crypto-price">${this.state.iotaPrice}</p>
+            </div>
+            <div className="coin-cart__input-box">
+              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onIotaDecrement}></i>
+              <input 
+                type="text" 
+                className="coin-cart__input" 
+                onChange={this.onIotaInput} 
+                value={this.state.iotaQty} 
+                placeholder="0"
+              />
+              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
+            </div>
+            <div className="coin-cart__line-total">
+              <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2)}</p>
+            </div>
           </div>
         </div>
 
-        <div className="coin-cart__row">
-          <div className="coin-cart__crypto-img-box">
-            <img src="./images/bitcoin.png" alt="bitcoin" className="coin-cart__img" />
-          </div>
-          <div className="coin-cart__crypto-info">
-            <p className="coin-cart__crypto-name">Iota (MIOTA)</p>
-            <p className="coin-cart__crypto-price">${this.state.iotaPrice}</p>
-          </div>
-          <div className="coin-cart__input-box">
-            <i className="fas fa-minus coin-cart__math-btn" onClick={this.onIotaDecrement}></i>
-            <input 
-              type="text" 
-              className="coin-cart__input" 
-              onChange={this.onIotaInput} 
-              value={this.state.iotaQty} 
-              placeholder="0"
-            />
-            <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
-          </div>
-          <div className="coin-cart__line-total">
-            <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2)}</p>
-          </div>
-        </div>
+        <Payment />
+        
       </div>
     )
   }

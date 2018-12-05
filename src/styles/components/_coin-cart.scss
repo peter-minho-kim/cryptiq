@@ -1,8 +1,14 @@
 .coin-cart {
   background-color: $white;
   border-radius: 5px;
+  display: flex;
   padding: 2rem;
   width: 100%;
+
+
+  &-selection {
+    margin-right: 5rem;
+  }
 
   &__row {
     align-items: center;
@@ -11,12 +17,21 @@
     justify-content: space-between;
     display: flex;
     padding: 4rem 0;
+    width: 60rem;
   }
 
   &__crypto-img-box {
     height: 7rem;
     position: relative;
     width: 7rem;
+  }
+
+  &__crypto-info {
+    width: 16.2rem;
+  }
+
+  &__crypto-input-box {
+    width: 17.3rem;
   }
 
   &__img {
@@ -72,6 +87,10 @@
     &:active {
       background-color: darken($athens-gray, 10%);
     }
+  }
+
+  &__line-total {
+    width: 11.1rem;
   }
 
   &__line-total__number {

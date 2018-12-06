@@ -15,8 +15,9 @@ class Payment extends React.Component {
       ccYear: '',
       ccChoice: 'visa',
       ccPath: './images/visa-logo.png',
-      submitted: false
+      disable: true
     }
+
     this.onNameChange = this.onNameChange.bind(this)
     this.onCCOneChange = this.onCCOneChange.bind(this)
     this.onCCTwoChange = this.onCCTwoChange.bind(this)
@@ -84,9 +85,13 @@ class Payment extends React.Component {
     e.preventDefault()
     this.setState(() => ({ submitted: true }))
     this.refs.formButton.innerHTML = '<img className="payment-loader" src="./images/loader.svg" alt="loader"/>'
+    // Just to show off the loader =)
     setTimeout(() => {
       this.props.history.push('/thankyou')
     }, 2000)
+  }
+  componentDidMount() {
+    console.log(this.refs.formButton.attributes.disabled)
   }
   render() {
     return (
@@ -239,6 +244,7 @@ class Payment extends React.Component {
               id="btc-address" 
               placeholder="3FkenCiXpSLqD8L79intRNXUgjRoH9sjXa"
               autoComplete="off"
+              required
             />
           </div> 
           :
@@ -254,6 +260,7 @@ class Payment extends React.Component {
               id="eth-address" 
               placeholder="AeZ7rXGtQSPIOrKOseD2tWSjfJpD4RNgH"
               autoComplete="off"
+              required
             />
           </div> 
           :
@@ -269,14 +276,21 @@ class Payment extends React.Component {
               id="iota-address" 
               placeholder="M4hqJu99UPwcydNH9w4NvVyu3XpSXU"
               autoComplete="off"
+              required
             />
           </div> 
           :
           undefined
         }
 
-        <button disabled={this.state.submitted} className="form-button" ref="formButton">
-          Buy Coins
+        <button 
+          // Disable button if no coins are selected and if payment form is not complete
+          disabled={this.state.disable && (this.props.btcCart.btc === 0 && this.props.ethCart.eth === 0 && this.props.iotaCart.iota === 0)} className="form-button" ref="formButton">
+          {this.props.btcCart.btc === 0 && this.props.ethCart.eth === 0 && this.props.iotaCart.iota === 0 ? 
+            'Select Coins' 
+            :
+            'Buy Coins'
+          }
         </button>
       </form>
     )

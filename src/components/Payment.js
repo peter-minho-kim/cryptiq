@@ -14,7 +14,8 @@ class Payment extends React.Component {
       ccMonth: '',
       ccYear: '',
       ccChoice: 'visa',
-      ccPath: './images/visa-logo.png'
+      ccPath: './images/visa-logo.png',
+      submitted: false
     }
     this.onNameChange = this.onNameChange.bind(this)
     this.onCCOneChange = this.onCCOneChange.bind(this)
@@ -25,6 +26,7 @@ class Payment extends React.Component {
     this.onYearChange = this.onYearChange.bind(this)
     this.onVisaChange = this.onVisaChange.bind(this)
     this.onMasterCardChange = this.onMasterCardChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
   onVisaChange() {
     this.setState(() => ({ ccPath: './images/visa-logo.png' }))
@@ -38,35 +40,55 @@ class Payment extends React.Component {
   }
   onNameChange(e) {
     const name = e.target.value
-    this.setState(() => ({ ccName: name }))
+    if (name.match(/^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/) || name === '') {
+      this.setState(() => ({ ccName: name }))
+    }
   }
   onCCOneChange(e) {
     const numbers = e.target.value
-    this.setState(() => ({ ccInputOne: numbers }))
+    if (numbers.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccInputOne: numbers }))
+    }
   }
   onCCTwoChange(e) {
     const numbers = e.target.value
-    this.setState(() => ({ ccInputTwo: numbers }))
+    if (numbers.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccInputTwo: numbers }))
+    }
   }
   onCCThreeChange(e) {
     const numbers = e.target.value
-    this.setState(() => ({ ccInputThree: numbers }))
+    if (numbers.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccInputThree: numbers }))
+    }
   }
   onCCFourChange(e) {
     const numbers = e.target.value
-    this.setState(() => ({ ccInputFour: numbers }))
+    if (numbers.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccInputFour: numbers }))
+    }
   }
   onMonthChange(e) {
     const month = e.target.value
-    this.setState(() => ({ ccMonth: month }))
+    if (month.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccMonth: month }))
+    }
   }
   onYearChange(e) {
     const year = e.target.value
-    this.setState(() => ({ ccYear: year }))
+    if (year.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccYear: year }))
+    }
+  }
+  onSubmit(e) {
+    e.preventDefault()
+    this.setState(() => ({ submitted: true }))
+    this.refs.formButton.innerHTML = '<img className="payment-loader" src="./images/loader.svg" alt="loader"/>'
+    this.props.history.push('/thankyou')
   }
   render() {
     return (
-      <form className="payment">
+      <form className="payment" onSubmit={this.onSubmit}>
         <h3 className="payment__heading u-margin-bottom-s-m">
           Card Details
           </h3>
@@ -111,6 +133,7 @@ class Payment extends React.Component {
             onChange={this.onNameChange}
             placeholder="Your Name" 
             autoComplete="off"
+            required
           />
         </div>
         <div className="input-group">
@@ -121,29 +144,45 @@ class Payment extends React.Component {
               className="payment-info payment-info__number" 
               id="cc-number-1" 
               placeholder="0000" 
+              value={this.state.ccInputOne}
               onChange={this.onCCOneChange}
               autoComplete="off"
+              maxLength="4"
+              pattern=".{4,}"
+              required title="4 numbers required"
             />
             <input 
               type="text" 
               className="payment-info payment-info__number" 
               placeholder="1234" 
+              value={this.state.ccInputTwo}
               onChange={this.onCCTwoChange}
               autoComplete="off"
+              maxLength="4"
+              pattern=".{4,}"
+              required title="4 numbers required"
             />
             <input 
               type="text" 
               className="payment-info payment-info__number" 
               placeholder="5678" 
+              value={this.state.ccInputThree}
               onChange={this.onCCThreeChange}
               autoComplete="off"
+              maxLength="4"
+              pattern=".{4,}"
+              required title="4 numbers required"
             />
             <input 
               type="text" 
               className="payment-info payment-info__number" 
               placeholder="9123" 
+              value={this.state.ccInputFour}
               onChange={this.onCCFourChange}
               autoComplete="off"
+              maxLength="4"
+              pattern=".{4,}"
+              required title="4 numbers required"
             />
           </div>
         </div>
@@ -156,15 +195,23 @@ class Payment extends React.Component {
               className="payment-info payment-info__exp-date" 
               id="exp-month" 
               placeholder="MM" 
+              value={this.state.ccMonth}
               onChange={this.onMonthChange}
               autoComplete="off"
+              maxLength="2"
+              pattern=".{2,}"
+              required title="2 numbers required (eg. Janauary = 01)"
             />
             <input 
               type="text" 
               className="payment-info payment-info__exp-date" 
               placeholder="YY" 
+              value={this.state.ccYear}
               onChange={this.onYearChange}
               autoComplete="off"
+              maxLength="2"
+              pattern=".{2,}"
+              required title="2 numbers required (eg. 2019 = 19)"
             />
           </div>
           <div className="input-group__cvv">
@@ -174,6 +221,9 @@ class Payment extends React.Component {
               className="payment-info payment-info__cvv" 
               placeholder="XXX"
               autoComplete="off"
+              maxLength="3"
+              pattern=".{3,}"
+              required title="3 numbers required"
             />
           </div>
         </div>
@@ -223,7 +273,9 @@ class Payment extends React.Component {
           undefined
         }
 
-        <button className="form-button">Buy Coins</button>
+        <button disabled={this.state.submitted} className="form-button" ref="formButton">
+          Buy Coins
+        </button>
       </form>
     )
   }

@@ -42,7 +42,6 @@
     width: 40rem;    
 
     &__card {
-      // background-color: $manatee;
       border-radius: 5px;
       -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .7);
               box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .7);
@@ -145,6 +144,11 @@
     color: $white;
     font-size: $d-font;
   }
+
+  &__name {
+    max-width: 17.2rem;
+    overflow: hidden;
+  }
 }
 
 .input-group {
@@ -158,6 +162,14 @@
   &__exp-date {
     margin-right: 2rem;
   }
+}
+
+.payment-loader {
+  position: absolute;
+    left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
 }
 
 .black-bcg {

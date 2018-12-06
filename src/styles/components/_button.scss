@@ -29,6 +29,21 @@
   font-family: inherit;
   font-size: $m-font;
   font-weight: 600;
+  height: 5.1rem;
   margin: 0 auto;
   padding: 1.5rem 4rem;
+  position: relative;
+  width: 18rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+  }
 }

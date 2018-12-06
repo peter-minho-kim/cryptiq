@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class Payment extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       ccInputOne: '',
@@ -84,7 +84,9 @@ class Payment extends React.Component {
     e.preventDefault()
     this.setState(() => ({ submitted: true }))
     this.refs.formButton.innerHTML = '<img className="payment-loader" src="./images/loader.svg" alt="loader"/>'
-    this.props.history.push('/thankyou')
+    setTimeout(() => {
+      this.props.history.push('/thankyou')
+    }, 2000)
   }
   render() {
     return (

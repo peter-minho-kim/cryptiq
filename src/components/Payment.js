@@ -28,9 +28,13 @@ class Payment extends React.Component {
   }
   onVisaChange() {
     this.setState(() => ({ ccPath: './images/visa-logo.png' }))
+    this.refs.mockCard.classList.remove('black-bcg')
+    this.refs.mockCard.classList.add('manatee-bcg')
   }
   onMasterCardChange() {
     this.setState(() => ({ ccPath: './images/mastercard-logo.png' }))
+    this.refs.mockCard.classList.remove('manatee-bcg')
+    this.refs.mockCard.classList.add('black-bcg')
   }
   onNameChange(e) {
     const name = e.target.value
@@ -67,7 +71,7 @@ class Payment extends React.Component {
           Card Details
           </h3>
         <div className="payment__mock u-margin-bottom-m">
-          <div className="payment__mock__card">
+          <div className="payment__mock__card manatee-bcg" ref="mockCard">
             <img src={this.state.ccPath} alt="credit card logo" className="payment__mock__card__image u-margin-bottom-m" />
             <div className="mock-cc-numbers u-margin-bottom-s-m">
               <span className="mock-cc-no mock-cc-no--1">{this.state.ccInputOne ? this.state.ccInputOne : '0000'}</span>

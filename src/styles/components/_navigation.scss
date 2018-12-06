@@ -23,8 +23,19 @@
   &__link:not(:last-child) {
     margin-right: 2rem;
   }
+
+  &__link:not(:first-child) {
+    border-color: $white;
+    font-weight: 600;
+    
+    &:hover {
+      background-color: $white;
+      color: $minsk;
+    }
+  }
 }
 
 .is-active {
-  border-color: $white;
+  background-color: $white;
+  color: $minsk;
 }

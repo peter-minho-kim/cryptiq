@@ -15,9 +15,9 @@ class CoinCart extends React.Component {
       btcQty: this.props.btcCart.btc,
       ethQty: this.props.ethCart.eth,
       iotaQty: this.props.iotaCart.iota,
-      btcPrice: 0,
-      ethPrice: 0,
-      iotaPrice: 0
+      btcPrice: '',
+      ethPrice: '',
+      iotaPrice: ''
     }
   }
   onBtcInput = (e) => {
@@ -77,155 +77,170 @@ class CoinCart extends React.Component {
       this.props.decrementIOTA()
     }
   }
-  componentWillMount() {
-    const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
-    const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
+  // componentWillMount() {
+  //   const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
+  //   const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
 
-    // Fetch BTC price
-    fetch(`${api}btc&to=usd`, {
-      headers: {
-        'X-RapidAPI-Key': apiKey
-      }
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json()
-      } else {
-        throw new Error('Unable to fetch currency data')
-      }
-    }).then((data) => {
-      this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
-    }).catch((err) => {
-      console.log(err)
-    })
+  //   // Fetch BTC price
+  //   fetch(`${api}btc&to=usd`, {
+  //     headers: {
+  //       'X-RapidAPI-Key': apiKey
+  //     }
+  //   })
+  //   .then((response) => {
+  //     if (response.status === 200) {
+  //       return response.json()
+  //     } else {
+  //       throw new Error('Unable to fetch currency data')
+  //     }
+  //   }).then((data) => {
+  //     // These setTimeouts are just to show off the loader =)
+  //     setTimeout(() => {
+  //       this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
+  //     }, 1000)
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
 
-    // Fetch ETH price
-    fetch(`${api}eth&to=usd`, {
-      headers: {
-        'X-RapidAPI-Key': apiKey
-      }
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json()
-      } else {
-        throw new Error('Unable to fetch currency data')
-      }
-    }).then((data) => {
-      this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
-    }).catch((err) => {
-      console.log(err)
-    })
+  //   // Fetch ETH price
+  //   fetch(`${api}eth&to=usd`, {
+  //     headers: {
+  //       'X-RapidAPI-Key': apiKey
+  //     }
+  //   })
+  //   .then((response) => {
+  //     if (response.status === 200) {
+  //       return response.json()
+  //     } else {
+  //       throw new Error('Unable to fetch currency data')
+  //     }
+  //   }).then((data) => {
+  //     setTimeout(() => {
+  //       this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
+  //     }, 1000)
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
 
-    // Fetch IOTA price
-    fetch(`${api}iota&to=usd`, {
-      headers: {
-        'X-RapidAPI-Key': apiKey
-      }
-    })
-    .then((response) => {
-      if (response.status === 200) {
-        return response.json()
-      } else {
-        throw new Error('Unable to fetch currency data')
-      }
-    }).then((data) => {
-      this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
+  //   // Fetch IOTA price
+  //   fetch(`${api}iota&to=usd`, {
+  //     headers: {
+  //       'X-RapidAPI-Key': apiKey
+  //     }
+  //   })
+  //   .then((response) => {
+  //     if (response.status === 200) {
+  //       return response.json()
+  //     } else {
+  //       throw new Error('Unable to fetch currency data')
+  //     }
+  //   }).then((data) => {
+  //     setTimeout(() => {
+  //       this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
+  //     }, 1000)
+  //   }).catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
   render() {
     return (
       <div className="coin-cart">
-        <div className="coin-cart-selection">
-          <div className="coin-cart__row">
-            <div className="coin-cart__crypto-img-box">
-              <img src="./images/btc.png" alt="bitcoin" className="coin-cart__img" />
+        {/* Show loader if fetch isn't complete */}
+        {(!this.state.btcPrice || !this.state.ethPrice || !this.state.iotaPrice) 
+          ? 
+          <div className="coin-cart-loader-box">
+            <img src="./images/loader.svg" alt="loader" className="coin-cart-loader" />
+          </div> 
+          :
+          <div className="coin-cart-selection">
+            <div className="coin-cart__row">
+              <div className="coin-cart__crypto-img-box">
+                <img src="./images/btc.png" alt="bitcoin" className="coin-cart__img" />
+              </div>
+              <div className="coin-cart__crypto-info">
+                <p className="coin-cart__crypto-name">Bitcoin (BTC)</p>
+                <p className="coin-cart__crypto-price">{this.state.btcPrice ? `$${(this.state.btcPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : 'Loading'}</p>
+              </div>
+              <div className="coin-cart__input-box">
+                <i className="fas fa-minus coin-cart__math-btn" onClick={this.onBtcDecrement}></i>
+                <input 
+                  type="text" 
+                  className="coin-cart__input" 
+                  onChange={this.onBtcInput} 
+                  value={this.state.btcQty} 
+                  placeholder="0"
+                />
+                <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
+              </div>
+              <div className="coin-cart__line-total">
+                <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+              </div>
             </div>
-            <div className="coin-cart__crypto-info">
-              <p className="coin-cart__crypto-name">Bitcoin (BTC)</p>
-              <p className="coin-cart__crypto-price">${this.state.btcPrice}</p>
+            
+            <div className="coin-cart__row">
+              <div className="coin-cart__crypto-img-box">
+                <img src="./images/eth.png" alt="ethereum" className="coin-cart__img" />
+              </div>
+              <div className="coin-cart__crypto-info">
+                <p className="coin-cart__crypto-name">Ethereum (ETH)</p>
+                <p className="coin-cart__crypto-price">{this.state.ethPrice ? `$${(this.state.ethPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : 'Loading'}</p>
+              </div>
+              <div className="coin-cart__input-box">
+                <i className="fas fa-minus coin-cart__math-btn" onClick={this.onEthDecrement}></i>
+                <input 
+                  type="text" 
+                  className="coin-cart__input" 
+                  onChange={this.onEthInput} 
+                  value={this.state.ethQty} 
+                  placeholder="0"
+                />
+                <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
+              </div>
+              <div className="coin-cart__line-total">
+                <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+              </div>
             </div>
-            <div className="coin-cart__input-box">
-              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onBtcDecrement}></i>
-              <input 
-                type="text" 
-                className="coin-cart__input" 
-                onChange={this.onBtcInput} 
-                value={this.state.btcQty} 
-                placeholder="0"
-              />
-              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
+  
+            <div className="coin-cart__row">
+              <div className="coin-cart__crypto-img-box">
+                <img src="./images/miota.png" alt="iota" className="coin-cart__img" />
+              </div>
+              <div className="coin-cart__crypto-info">
+                <p className="coin-cart__crypto-name">Iota (MIOTA)</p>
+                <p className="coin-cart__crypto-price">{this.state.iotaPrice ? `$${(this.state.iotaPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` : 'Loading'}</p>
+              </div>
+              <div className="coin-cart__input-box">
+                <i className="fas fa-minus coin-cart__math-btn" onClick={this.onIotaDecrement}></i>
+                <input 
+                  type="text" 
+                  className="coin-cart__input" 
+                  onChange={this.onIotaInput} 
+                  value={this.state.iotaQty} 
+                  placeholder="0"
+                />
+                <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
+              </div>
+              <div className="coin-cart__line-total">
+                <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+              </div>
             </div>
-            <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+  
+            <div className="coin-cart__row coin-cart__row__subtotal">
+              <div className="subtotal">
+                <p className="subtotal__number"><span className="subtotal">Subtotal: </span>
+                  <span className="subtotal-number">
+                    ${
+                      ((this.state.btcQty * this.state.btcPrice) + 
+                      (this.state.ethQty * this.state.ethPrice) + 
+                      (this.state.iotaQty * this.state.iotaPrice))
+                        .toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    }
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-          
-          <div className="coin-cart__row">
-            <div className="coin-cart__crypto-img-box">
-              <img src="./images/eth.png" alt="ethereum" className="coin-cart__img" />
-            </div>
-            <div className="coin-cart__crypto-info">
-              <p className="coin-cart__crypto-name">Ethereum (ETH)</p>
-              <p className="coin-cart__crypto-price">${this.state.ethPrice}</p>
-            </div>
-            <div className="coin-cart__input-box">
-              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onEthDecrement}></i>
-              <input 
-                type="text" 
-                className="coin-cart__input" 
-                onChange={this.onEthInput} 
-                value={this.state.ethQty} 
-                placeholder="0"
-              />
-              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
-            </div>
-            <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            </div>
-          </div>
-
-          <div className="coin-cart__row">
-            <div className="coin-cart__crypto-img-box">
-              <img src="./images/miota.png" alt="iota" className="coin-cart__img" />
-            </div>
-            <div className="coin-cart__crypto-info">
-              <p className="coin-cart__crypto-name">Iota (MIOTA)</p>
-              <p className="coin-cart__crypto-price">${this.state.iotaPrice}</p>
-            </div>
-            <div className="coin-cart__input-box">
-              <i className="fas fa-minus coin-cart__math-btn" onClick={this.onIotaDecrement}></i>
-              <input 
-                type="text" 
-                className="coin-cart__input" 
-                onChange={this.onIotaInput} 
-                value={this.state.iotaQty} 
-                placeholder="0"
-              />
-              <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
-            </div>
-            <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            </div>
-          </div>
-
-          <div className="coin-cart__row coin-cart__row__subtotal">
-            <div className="subtotal">
-              <p className="subtotal__number"><span className="subtotal">Subtotal: </span>
-                <span className="subtotal-number">
-                  ${
-                    ((this.state.btcQty * this.state.btcPrice) + 
-                    (this.state.ethQty * this.state.ethPrice) + 
-                    (this.state.iotaQty * this.state.iotaPrice))
-                      .toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  }
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
+        }
 
         <Payment />
         

@@ -7,17 +7,33 @@
 
 
   &-selection {
+    display: flex;
+    flex-direction: column;
     margin-right: 5rem;
   }
 
   &__row {
     align-items: center;
     border: 1px solid transparent;
-    border-bottom-color: $athens-gray;
     justify-content: space-between;
     display: flex;
-    padding: 4rem 0;
-    width: 60rem;
+    padding: 4rem 2rem;
+    width: 65rem;
+
+    &:not(:last-child) {
+      border-bottom-color: $athens-gray;
+    }
+
+    &__subtotal {
+      display: flex;
+      justify-content: flex-end;
+
+      .subtotal {
+        font-size: $l-font;
+        text-align: right;
+        width: 25rem;
+      }
+    }
   }
 
   &__crypto-img-box {

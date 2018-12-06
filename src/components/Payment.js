@@ -77,8 +77,12 @@ class Payment extends React.Component {
               </p>
             </div>
           </div>
+          <div className="payment__choices">
+            <h1>visa</h1>
+            <h1>mastercard</h1>
+          </div>
         </div>
-        <div className="input-group">
+        <div className="input-group u-margin-top-xxx">
           <label className="payment-info__label" htmlFor="cc-name">Name on Card</label>
           <input 
             type="text" 
@@ -200,7 +204,7 @@ class Payment extends React.Component {
           undefined
         }
 
-        <button className="form-button">Check Out</button>
+        <button className="form-button">Buy Coins</button>
       </form>
     )
   }

@@ -3,7 +3,6 @@
   border-radius: 5px;
   flex-grow: 1;
   padding: 2rem 3rem;
-  width: 43rem;
 
   &__heading {
     color: $white;
@@ -18,6 +17,8 @@
   }
 
   &__mock {
+    display: flex;
+    position: absolute;
 
     &__card {
       background-color: $manatee;
@@ -59,7 +60,7 @@
     }
 
     &__number {
-      width: 7.5rem;
+      width: 6rem;
 
       &:not(:last-child) {
         margin-right: 1.5rem;
@@ -75,6 +76,10 @@
       &:not(:last-child) {
         margin-right: 1.5rem;
       }
+    }
+
+    &__cvv {
+      width: 15rem;
     }
 
     &__wallet {

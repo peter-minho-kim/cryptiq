@@ -77,64 +77,64 @@ class CoinCart extends React.Component {
       this.props.decrementIOTA()
     }
   }
-  // componentWillMount() {
-  //   const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
-  //   const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
+  componentWillMount() {
+    const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
+    const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
 
-  //   // Fetch BTC price
-  //   fetch(`${api}btc&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
+    // Fetch BTC price
+    fetch(`${api}btc&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
+    }).catch((err) => {
+      console.log(err)
+    })
 
-  //   // Fetch ETH price
-  //   fetch(`${api}eth&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
+    // Fetch ETH price
+    fetch(`${api}eth&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
+    }).catch((err) => {
+      console.log(err)
+    })
 
-  //   // Fetch IOTA price
-  //   fetch(`${api}iota&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
+    // Fetch IOTA price
+    fetch(`${api}iota&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
   render() {
     return (
       <div className="coin-cart">
@@ -159,7 +159,7 @@ class CoinCart extends React.Component {
               <i className="fas fa-plus coin-cart__math-btn" onClick={this.onBtcIncrement}></i>
             </div>
             <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2)}</p>
+              <p className="coin-cart__line-total__number">${(this.state.btcQty * this.state.btcPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
             </div>
           </div>
           
@@ -183,7 +183,7 @@ class CoinCart extends React.Component {
               <i className="fas fa-plus coin-cart__math-btn" onClick={this.onEthIncrement}></i>
             </div>
             <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2)}</p>
+              <p className="coin-cart__line-total__number">${(this.state.ethQty * this.state.ethPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
             </div>
           </div>
 
@@ -207,7 +207,22 @@ class CoinCart extends React.Component {
               <i className="fas fa-plus coin-cart__math-btn" onClick={this.onIotaIncrement}></i>
             </div>
             <div className="coin-cart__line-total">
-              <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2)}</p>
+              <p className="coin-cart__line-total__number">${(this.state.iotaQty * this.state.iotaPrice).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+            </div>
+          </div>
+
+          <div className="coin-cart__row coin-cart__row__subtotal">
+            <div className="subtotal">
+              <p className="subtotal__number"><span className="subtotal">Subtotal: </span>
+                <span className="subtotal-number">
+                  ${
+                    ((this.state.btcQty * this.state.btcPrice) + 
+                    (this.state.ethQty * this.state.ethPrice) + 
+                    (this.state.iotaQty * this.state.iotaPrice))
+                      .toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                  }
+                </span>
+              </p>
             </div>
           </div>
         </div>

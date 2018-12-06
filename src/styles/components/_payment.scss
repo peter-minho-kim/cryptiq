@@ -3,6 +3,7 @@
   border-radius: 5px;
   flex-grow: 1;
   padding: 2rem 3rem;
+  position: relative;
 
   &__heading {
     color: $white;
@@ -16,15 +17,39 @@
     font-weight: 500;
   }
 
+  &__choices {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__choice {
+      cursor: pointer;
+      height: 2.2rem;
+
+      &:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+
   &__mock {
     display: flex;
+    justify-content: space-around;
     position: absolute;
+      left: -3.5rem;
+    width: 40rem;    
 
     &__card {
       background-color: $manatee;
       border-radius: 5px;
-      padding: 1rem 2rem;
+      padding: 2rem;
       width: 29rem;
+
+      &__image {
+        height: 2.2rem;
+      }
 
       &__type {
         color: $white;

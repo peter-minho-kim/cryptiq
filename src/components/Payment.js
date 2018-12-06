@@ -12,7 +12,9 @@ class Payment extends React.Component {
       ccInputFour: '',
       ccName: '',
       ccMonth: '',
-      ccYear: ''
+      ccYear: '',
+      ccChoice: 'visa',
+      ccPath: './images/visa-logo.png'
     }
     this.onNameChange = this.onNameChange.bind(this)
     this.onCCOneChange = this.onCCOneChange.bind(this)
@@ -21,6 +23,14 @@ class Payment extends React.Component {
     this.onCCFourChange = this.onCCFourChange.bind(this)
     this.onMonthChange = this.onMonthChange.bind(this)
     this.onYearChange = this.onYearChange.bind(this)
+    this.onVisaChange = this.onVisaChange.bind(this)
+    this.onMasterCardChange = this.onMasterCardChange.bind(this)
+  }
+  onVisaChange() {
+    this.setState(() => ({ ccPath: './images/visa-logo.png' }))
+  }
+  onMasterCardChange() {
+    this.setState(() => ({ ccPath: './images/mastercard-logo.png' }))
   }
   onNameChange(e) {
     const name = e.target.value
@@ -50,9 +60,6 @@ class Payment extends React.Component {
     const year = e.target.value
     this.setState(() => ({ ccYear: year }))
   }
-  componentDidMount() {
-    console.log(this.props.btcCart.btc)
-  }
   render() {
     return (
       <form className="payment">
@@ -61,9 +68,7 @@ class Payment extends React.Component {
           </h3>
         <div className="payment__mock u-margin-bottom-m">
           <div className="payment__mock__card">
-            <p className="payment__mock__card__type u-margin-bottom-s-m">
-              visa
-              </p>
+            <img src={this.state.ccPath} alt="credit card logo" className="payment__mock__card__image u-margin-bottom-m" />
             <div className="mock-cc-numbers u-margin-bottom-s-m">
               <span className="mock-cc-no mock-cc-no--1">{this.state.ccInputOne ? this.state.ccInputOne : '0000'}</span>
               <span className="mock-cc-no mock-cc-no--2">{this.state.ccInputTwo ? this.state.ccInputTwo : '1234'}</span>
@@ -78,8 +83,18 @@ class Payment extends React.Component {
             </div>
           </div>
           <div className="payment__choices">
-            <h1>visa</h1>
-            <h1>mastercard</h1>
+            <img 
+              src="./images/visa-logo.png" 
+              alt="visa logo" 
+              className="payment__choices__choice" 
+              onClick={this.onVisaChange}
+            />
+            <img 
+              src="./images/mastercard-logo.png" 
+              alt="mastercard logo" 
+              className="payment__choices__choice" 
+              onClick={this.onMasterCardChange}
+            />
           </div>
         </div>
         <div className="input-group u-margin-top-xxx">

@@ -77,71 +77,71 @@ class CoinCart extends React.Component {
       this.props.decrementIOTA()
     }
   }
-  // componentWillMount() {
-  //   const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
-  //   const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
+  componentWillMount() {
+    const api = 'https://bravenewcoin-v1.p.rapidapi.com/convert?qty=1&from='
+    const apiKey = 'jFOb7XtsfimshjMy1yKo1eQpkgMQp11XOwCjsnMJiH1vy0hpq0'
 
-  //   // Fetch BTC price
-  //   fetch(`${api}btc&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     // These setTimeouts are just to show off the loader =)
-  //     setTimeout(() => {
-  //       this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
-  //     }, 1000)
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
+    // Fetch BTC price
+    fetch(`${api}btc&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      // These setTimeouts are just to show off the loader =)
+      setTimeout(() => {
+        this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
+      }, 700)
+    }).catch((err) => {
+      console.log(err)
+    })
 
-  //   // Fetch ETH price
-  //   fetch(`${api}eth&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     setTimeout(() => {
-  //       this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
-  //     }, 1000)
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
+    // Fetch ETH price
+    fetch(`${api}eth&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      setTimeout(() => {
+        this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
+      }, 700)
+    }).catch((err) => {
+      console.log(err)
+    })
 
-  //   // Fetch IOTA price
-  //   fetch(`${api}iota&to=usd`, {
-  //     headers: {
-  //       'X-RapidAPI-Key': apiKey
-  //     }
-  //   })
-  //   .then((response) => {
-  //     if (response.status === 200) {
-  //       return response.json()
-  //     } else {
-  //       throw new Error('Unable to fetch currency data')
-  //     }
-  //   }).then((data) => {
-  //     setTimeout(() => {
-  //       this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
-  //     }, 1000)
-  //   }).catch((err) => {
-  //     console.log(err)
-  //   })
-  // }
+    // Fetch IOTA price
+    fetch(`${api}iota&to=usd`, {
+      headers: {
+        'X-RapidAPI-Key': apiKey
+      }
+    })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      } else {
+        throw new Error('Unable to fetch currency data')
+      }
+    }).then((data) => {
+      setTimeout(() => {
+        this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
+      }, 700)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
   render() {
     return (
       <div className="coin-cart">

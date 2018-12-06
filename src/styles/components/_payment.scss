@@ -5,7 +5,6 @@
   flex-grow: 1;
   padding: 2rem 3rem;
   position: relative;
-  transition: all .3s;
 
   &__heading {
     font-size: $lr-font;
@@ -48,6 +47,7 @@
       -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .7);
               box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .7);
       padding: 2rem;
+      transition: all .3s;
       width: 29rem;
 
       &__image {

@@ -101,10 +101,11 @@ const HomePage = () => (
         </div>
         <div className="footer__bottom">
           <div className="footer__left">
-            <i className="fas fa-code"></i> Peter Kim   
-            <br/>      
+            <i className="fas fa-code"></i> Peter Kim       
             <a href="https://www.linkedin.com/in/peter-kim-developer/" className="social-media" target="_blank"><i className="fab fa-linkedin"></i></a>
             <a href="https://github.com/peter-minho-kim" className="social-media" target="_blank"><i className="fab fa-github"></i></a>
+            <br/>
+            Copyright © 2018 All Rights Reserved
           </div>
           <div className="footer__right">
             <i className="fas fa-bolt"></i> by <a href="https://bravenewcoin.com/" target="_blank"><img src="./images/brave-new-coin.svg" className="brave-new-coin" alt="brave new coin logo" /></a>

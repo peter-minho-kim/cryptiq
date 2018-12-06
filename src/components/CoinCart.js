@@ -97,7 +97,7 @@ class CoinCart extends React.Component {
       // These setTimeouts are just to show off the loader =)
       setTimeout(() => {
         this.setState(() => ({ btcPrice: (data.to_quantity).toFixed(2) }))
-      }, 700)
+      }, 1500)
     }).catch((err) => {
       console.log(err)
     })
@@ -117,7 +117,7 @@ class CoinCart extends React.Component {
     }).then((data) => {
       setTimeout(() => {
         this.setState(() => ({ ethPrice: (data.to_quantity).toFixed(2) }))
-      }, 700)
+      }, 1500)
     }).catch((err) => {
       console.log(err)
     })
@@ -137,7 +137,7 @@ class CoinCart extends React.Component {
     }).then((data) => {
       setTimeout(() => {
         this.setState(() => ({ iotaPrice: (data.to_quantity).toFixed(2) }))
-      }, 700)
+      }, 1500)
     }).catch((err) => {
       console.log(err)
     })
@@ -148,11 +148,11 @@ class CoinCart extends React.Component {
         {/* Show loader if fetch isn't complete */}
         {(!this.state.btcPrice || !this.state.ethPrice || !this.state.iotaPrice) 
           ? 
-          <div className="coin-cart-loader-box">
+          <div className="coin-cart-loader-box fade-in">
             <img src="./images/loader.svg" alt="loader" className="coin-cart-loader" />
           </div> 
           :
-          <div className="coin-cart-selection">
+          <div className="coin-cart-selection fade-in">
             <div className="coin-cart__row">
               <div className="coin-cart__crypto-img-box">
                 <img src="./images/btc.png" alt="bitcoin" className="coin-cart__img" />

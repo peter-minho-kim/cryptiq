@@ -18,6 +18,7 @@
     justify-content: space-around;
 
     &__card {
+      border-radius: 1rem;
       -webkit-box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
               box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
       padding: 2rem;

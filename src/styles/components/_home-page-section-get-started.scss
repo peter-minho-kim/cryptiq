@@ -15,11 +15,25 @@
   }
 
   .get-started-cards {
+    counter-reset: get-started-counter;
     display: flex;
     justify-content: space-around;
 
+
     &__card {
+      position: relative;
       width: 25rem;
+
+      &::before {
+        color: lighten($manatee, 20%);
+        content: '0' counter(get-started-counter);
+        counter-increment: get-started-counter;
+        font-size: $xl-font;
+        position: absolute;
+          top: 0;
+          left: 0;
+        transform: rotate(-90deg);
+      }
     }
 
     &__img {

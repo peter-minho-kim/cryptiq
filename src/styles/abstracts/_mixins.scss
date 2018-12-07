@@ -36,6 +36,10 @@
   @media (max-width: 68.75em) { @content };
 }
 
+@mixin respond-1020-width {
+  @media (max-width: 63.75em) { @content };
+}
+
 @mixin respond-950-width {
   @media (max-width: 59.375em) { @content };
 }
@@ -50,6 +54,10 @@
 
 @mixin respond-665-width {
   @media (max-width: 41.5625em) { @content };
+}
+
+@mixin respond-565-width {
+  @media (max-width: 35.3125em) { @content };
 }
 
 @mixin respond-400-width {

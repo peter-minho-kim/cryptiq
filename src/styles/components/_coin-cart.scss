@@ -6,7 +6,9 @@
   padding: 2rem;
   width: 100%;
 
-
+  @include respond-1020-width {
+    flex-direction: column;
+  }
 
   &-loader-box {
     display: flex;
@@ -15,12 +17,15 @@
     width: 65rem;
   }
 
-
   &-selection {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     margin-right: 5rem;
+
+    @include respond-1020-width {
+      margin: 0;
+    }
   }
 
   &__row {
@@ -28,7 +33,11 @@
     border: 1px solid transparent;
     justify-content: space-between;
     display: flex;
-    padding: 4rem 2rem;
+    padding: 4rem 0;
+
+    @include respond-700-width {
+      flex-direction: column;
+    }
 
     &:not(:last-child) {
       border-bottom-color: $athens-gray;
@@ -42,6 +51,10 @@
         font-size: $l-font;
         text-align: right;
         width: 25rem;
+
+        @include respond-700-width {
+          text-align: center;
+        }
       }
     }
   }
@@ -49,22 +62,34 @@
   &__crypto-img-box {
     height: 7rem;
     position: relative;
+    text-align: center;
     width: 7rem;
   }
 
   &__crypto-info {
     width: 16.2rem;
+
+    @include respond-700-width {
+      text-align: center;
+    }
   }
 
-  &__crypto-input-box {
-    width: 17.3rem;
+  &__input-box {
+    @include respond-700-width {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__img {
     position: absolute;
       top: 50%;
     transform: translateY(-50%);
-    width: 7rem;
+    width: 75%;
+
+    @include respond-700-width {
+      position: static;
+      transform: translateY(15%);
+    }
   }
 
   &__crypto-name {
@@ -76,6 +101,10 @@
   &__crypto-price {
     color: $boulder;
     font-size: $d-font;
+
+    @include respond-700-width {
+      margin-bottom: 1.5rem;
+    }
   }
 
   &__input {
@@ -123,5 +152,6 @@
 
   &__line-total__number {
     font-size: $m-font;
+    text-align: center;
   }
 }

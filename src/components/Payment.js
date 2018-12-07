@@ -296,12 +296,12 @@ class Payment extends React.Component {
 
         <button 
           // Disable button if no coins are selected and if payment form is not complete
-          disabled={this.state.disable && (this.props.btcCart.btc === 0 && this.props.ethCart.eth === 0 && this.props.iotaCart.iota === 0)} 
+          disabled={this.state.disable && (this.props.btcCart.btc === '' && this.props.ethCart.eth === '' && this.props.iotaCart.iota === '')} 
           // Change class of button based on form state
-          className={this.state.disable && (this.props.btcCart.btc === 0 && this.props.ethCart.eth === 0 && this.props.iotaCart.iota === 0) ? 'form-button--disabled' : 'form-button'}
+          className={this.state.disable && (this.props.btcCart.btc === '' && this.props.ethCart.eth === '' && this.props.iotaCart.iota === '') ? 'form-button--disabled' : 'form-button'}
           ref="formButton"
         >
-          {this.props.btcCart.btc === 0 && this.props.ethCart.eth === 0 && this.props.iotaCart.iota === 0 ? 
+          {this.props.btcCart.btc === '' && this.props.ethCart.eth === '' && this.props.iotaCart.iota === '' ? 
             // Conditionally render button text
             'Select Coins' 
             :

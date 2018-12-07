@@ -6,6 +6,10 @@
   padding: 2rem 3rem;
   position: relative;
 
+  @include respond-1020-width {
+    width: 100%;
+  }
+
   &__heading {
     font-size: $lr-font;
     font-weight: 500;
@@ -24,12 +28,20 @@
     flex-direction: column;
     text-align: center;
 
+    @include respond-1020-width {
+      flex-direction: row;
+    }
+
     &__choice {
       cursor: pointer;
       height: 2.2rem;
 
       &:not(:last-child) {
         margin-bottom: 2.5rem;
+
+        @include respond-1020-width {
+          margin: 0 2rem 0 0;
+        }
       }
     }
   }
@@ -41,6 +53,16 @@
       left: -3.5rem;
     width: 40rem;    
 
+    @include respond-1020-width {
+      left: 50%;
+      transform: translateX(-50%);
+      width: auto;
+    }
+
+    @include respond-565-width {
+      flex-direction: column;
+    }
+
     &__card {
       border-radius: 5px;
       -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .7);
@@ -48,6 +70,14 @@
       padding: 2rem;
       transition: all .3s;
       width: 29rem;
+
+      @include respond-1020-width {
+        margin-right: 4rem;
+      }
+
+      @include respond-565-width {
+        margin: 0 0 4rem 0;
+      }
 
       &__image {
         height: 2.2rem;
@@ -86,7 +116,7 @@
     }
 
     &__number {
-      width: 6rem;
+      width: 20%;
 
       &:not(:last-child) {
         margin-right: 1.5rem;
@@ -159,8 +189,30 @@
     justify-content: space-between;
   }
 
+  &__cvv {
+    @include respond-1020-width {
+      width: 50%;
+    }
+
+    & input {
+      @include respond-1020-width {
+        width: 100%;
+      }
+    }
+  }
+
   &__exp-date {
     margin-right: 2rem;
+
+    @include respond-1020-width {
+      width: 50%;
+    }
+
+    & input {
+      @include respond-1020-width {
+        width: 30%;
+      }
+    }
   }
 }
 

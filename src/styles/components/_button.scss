@@ -34,7 +34,6 @@
   padding: 1.5rem 4rem;
   position: relative;
   transition: all .3s;
-  width: 20rem;
 
   &--disabled {
     background-color: transparent;
@@ -54,10 +53,3 @@
     width: 80%;
   }
 }
-
-// .form-button--disabled {
-//   background-color: transparent;
-//   border: 1px solid $athens-gray;
-//   border-radius: 5px;
-//   color: $athens-gray;
-// }

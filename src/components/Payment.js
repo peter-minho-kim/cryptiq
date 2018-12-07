@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { setBTC, setETH, setIOTA } from '../actions/cart'
 
 class Payment extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Payment extends React.Component {
       ccMonth: '',
       ccYear: '',
       ccChoice: 'visa',
+      ccCVV: '',
       ccPath: './images/visa-logo.png',
       disable: true
     }
@@ -27,6 +29,7 @@ class Payment extends React.Component {
     this.onYearChange = this.onYearChange.bind(this)
     this.onVisaChange = this.onVisaChange.bind(this)
     this.onMasterCardChange = this.onMasterCardChange.bind(this)
+    this.onCVVChange = this.onCVVChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
   onVisaChange() {
@@ -81,17 +84,23 @@ class Payment extends React.Component {
       this.setState(() => ({ ccYear: year }))
     }
   }
+  onCVVChange(e) {
+    const cvv = e.target.value
+    if (cvv.match(/^[0-9]*$/)) {
+      this.setState(() => ({ ccCVV: cvv }))
+    }
+  }
   onSubmit(e) {
     e.preventDefault()
     this.setState(() => ({ submitted: true }))
     this.refs.formButton.innerHTML = '<img className="payment-loader" src="./images/loader.svg" alt="loader"/>'
     // Just to show off the loader =)
     setTimeout(() => {
+      this.props.setBTC(0)
+      this.props.setETH(0)
+      this.props.setIOTA(0)
       this.props.history.push('/thankyou')
     }, 2000)
-  }
-  componentDidMount() {
-    console.log(this.refs.formButton.attributes.disabled)
   }
   render() {
     return (
@@ -227,6 +236,8 @@ class Payment extends React.Component {
               type="text"
               className="payment-info payment-info__cvv" 
               placeholder="XXX"
+              value={this.state.ccCVV}
+              onChange={this.onCVVChange}
               autoComplete="off"
               maxLength="3"
               pattern=".{3,}"
@@ -308,4 +319,10 @@ const mapStateToProps = (state) => ({
   iotaCart: state.iota
 })
 
-export default connect(mapStateToProps)(Payment)
+const mapDispatchToProps = (dispatch) => ({
+  setBTC: (amount) => dispatch(setBTC(amount)),
+  setETH: (amount) => dispatch(setETH(amount)),
+  setIOTA: (amount) => dispatch(setIOTA(amount))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Payment)

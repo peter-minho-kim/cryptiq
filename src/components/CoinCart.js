@@ -242,7 +242,7 @@ class CoinCart extends React.Component {
           </div>
         }
 
-        <Payment history={this.props.history} />
+        <Payment history={this.props.history} handleFormReset={this.handleFormReset}/>
         
       </div>
     )

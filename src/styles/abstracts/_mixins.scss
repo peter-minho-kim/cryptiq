@@ -1,3 +1,14 @@
+@mixin wrapper {
+  margin: 0 auto;
+  padding: 1rem;
+  width: $grid-width;
+}
+
+@mixin header {
+  margin-top: 10rem;
+  padding: 2rem 0;
+}
+
 // 1800px === 112.5em === 75%
 // 1200px === 75em === 56.25%
 // 900px === 56.25em === 50%

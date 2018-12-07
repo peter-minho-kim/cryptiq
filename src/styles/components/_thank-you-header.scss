@@ -1,0 +1,29 @@
+.thank-you-header {
+  @include header;
+
+  color: $white;
+
+  text-align: center;
+
+  .far {
+    font-size: $huge-font;
+  }
+
+  &__text--success {
+    font-size: $xl-font;
+  }
+
+  &__text--info {
+    font-size: $m-font;
+  }
+
+  &__text--cart {
+    background-color: $white;
+    border-radius: 10rem;
+    color: $minsk;
+    display: inline-block;
+    font-size: $d-font;
+    font-weight: 600;
+    padding: 2rem;
+  }
+}

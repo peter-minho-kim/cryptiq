@@ -253,7 +253,7 @@ class Payment extends React.Component {
               type="text" 
               className="payment-info payment-info__wallet" 
               id="btc-address" 
-              placeholder="3FkenCiXpSLqD8L79intRNXUgjRoH9sjXa"
+              placeholder="anyRandomTextWillDo"
               autoComplete="off"
               required
             />
@@ -269,7 +269,7 @@ class Payment extends React.Component {
               type="text" 
               className="payment-info payment-info__wallet" 
               id="eth-address" 
-              placeholder="AeZ7rXGtQSPIOrKOseD2tWSjfJpD4RNgH"
+              placeholder="anyRandomTextWillDo"
               autoComplete="off"
               required
             />
@@ -285,7 +285,7 @@ class Payment extends React.Component {
               type="text" 
               className="payment-info payment-info__wallet" 
               id="iota-address" 
-              placeholder="M4hqJu99UPwcydNH9w4NvVyu3XpSXU"
+              placeholder="anyRandomTextWillDo"
               autoComplete="off"
               required
             />

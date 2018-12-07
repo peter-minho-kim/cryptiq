@@ -3,6 +3,8 @@
   padding: 0 4rem;
   width: $grid-width;
 
+  @include respond-1140-width {}
+
   .heading--secondary {
     color: $minsk;
     font-size: $xxl-font;
@@ -19,10 +21,18 @@
     display: flex;
     justify-content: space-around;
 
+    @include respond-700-width {
+      flex-direction: column;
+      align-items: center;
+    }
 
     &__card {
       position: relative;
       width: 25rem;
+
+      &:not(:last-child) {
+        margin-bottom: 5rem;
+      }
 
       &::before {
         color: lighten($manatee, 20%);

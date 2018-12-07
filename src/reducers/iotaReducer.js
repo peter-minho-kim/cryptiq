@@ -1,4 +1,4 @@
-const iotaReducer = (state = { iota: 0 }, action) => {
+const iotaReducer = (state = { iota: '' }, action) => {
   switch (action.type) {
     case 'INCREMENT_IOTA':
       return {

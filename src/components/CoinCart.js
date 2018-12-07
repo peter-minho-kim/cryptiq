@@ -22,57 +22,81 @@ class CoinCart extends React.Component {
   }
   onBtcInput = (e) => {
     const btcInput = e.target.value
-    if (btcInput.match(/^\d{0,3}?$/)) {
+    if (btcInput === '') {
+      this.setState(() => ({ btcQty: '' }))
+      this.props.setBTC(0)
+    } else if (btcInput.match(/^\d{0,3}?$/)) {   
       this.setState(() => ({ btcQty: btcInput }))
-      this.props.setBTC(btcInput)
+      this.props.setBTC(btcInput)    
     }
   }
   onBtcIncrement = () => {
-    if (this.state.btcQty < 999) {
+    if (this.state.btcQty === '') {
+      this.setState(() => ({ btcQty: 1 }))
+    } else if (this.state.btcQty < 999) {
       this.setState((prevState) => ({ btcQty: parseInt(prevState.btcQty) + 1 }))
       this.props.incrementBTC()
-    }
+    } 
   }
   onBtcDecrement = () => {
-    if (this.state.btcQty > 0) {
+    if (this.state.btcQty === 1) {
+      this.setState(() => ({ btcQty: '' }))
+      this.props.decrementBTC()
+    } else if (this.state.btcQty > 0) {
       this.setState((prevState) => ({ btcQty: parseInt(prevState.btcQty) - 1 }))
       this.props.decrementBTC()
     } 
   }
   onEthInput = (e) => {
     const ethInput = e.target.value
-    if (ethInput.match(/^\d{0,3}?$/)) {
+    if (ethInput === '') {
+      this.setState(() => ({ ethQty: '' }))
+      this.props.setETH(0)
+    } else if (ethInput.match(/^\d{0,3}?$/)) {
       this.setState(() => ({ ethQty: ethInput }))
       this.props.setETH(ethInput)
     }
   }
   onEthIncrement = () => {
-    if (this.state.ethQty < 999) {
+    if (this.state.ethQty === '') {
+      this.setState(() => ({ ethQty: 1 }))
+    } else if (this.state.ethQty < 999) {
       this.setState((prevState) => ({ ethQty: parseInt(prevState.ethQty) + 1 }))
       this.props.incrementETH()
     }
   }
   onEthDecrement = () => {
-    if (this.state.ethQty > 0) {
+    if (this.state.ethQty === 1) {
+      this.setState(() => ({ ethQty: '' }))
+      this.props.decrementETH()
+    } else if (this.state.ethQty > 0) {
       this.setState((prevState) => ({ ethQty: parseInt(prevState.ethQty) - 1 }))
       this.props.decrementETH()
     }
   }
   onIotaInput = (e) => {
     const iotaInput = e.target.value
-    if (iotaInput.match(/^\d{0,3}?$/)) {
+    if (iotaInput === '') {
+      this.setState(() => ({ iotaQty: '' }))
+      this.props.setIOTA(0)
+    } else if (iotaInput.match(/^\d{0,3}?$/)) {
       this.setState(() => ({ iotaQty: iotaInput }))
       this.props.setIOTA(iotaInput)
     }
   }
   onIotaIncrement = () => {
-    if (this.state.iotaQty < 999) {
+    if (this.state.iotaQty === '') {
+      this.setState(() => ({ iotaQty: 1 }))
+    } else if (this.state.iotaQty < 999) {
       this.setState((prevState) => ({ iotaQty: parseInt(prevState.iotaQty) + 1 }))
       this.props.incrementIOTA()
     }
   }
   onIotaDecrement = () => {
-    if (this.state.iotaQty > 0) {
+    if (this.state.iotaQty === 1) {
+      this.setState(() => ({ iotaQty: '' }))
+      this.props.decrementIOTA()
+    } else if (this.state.iotaQty > 0) {
       this.setState((prevState) => ({ iotaQty: parseInt(prevState.iotaQty) - 1 }))
       this.props.decrementIOTA()
     }

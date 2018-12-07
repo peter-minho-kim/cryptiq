@@ -23,38 +23,35 @@
   @media (max-width: 75em) { @content };
 }
 
+@mixin respond-1140-width {
+  @media (max-width: 71.25em) { 
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: 100%;
+    @content 
+  };
+}
+
 @mixin respond-1100-width {
   @media (max-width: 68.75em) { @content };
 }
 
-@mixin respond-1050-width {
-  @media (max-width: 65.625em) { @content };
-}
-
-@mixin respond-1010-width {
-  @media (max-width: 63.125em) { @content };
+@mixin respond-950-width {
+  @media (max-width: 59.375em) { @content };
 }
 
 @mixin respond-900-width {
   @media (max-width: 56.25em) { @content };
 }
 
-@mixin respond-850-width {
-  @media (max-width: 53.125em) { @content };
+@mixin respond-700-width {
+  @media (max-width: 43.75em) { @content };
 }
 
-@mixin respond-750-width {
-  @media (max-width: 46.875em) { @content };
+@mixin respond-665-width {
+  @media (max-width: 41.5625em) { @content };
 }
 
-@mixin respond-650-width {
-  @media (max-width: 40.625em) { @content };
-}
-
-@mixin respond-550-width {
-  @media (max-width: 34.375em) { @content };
-}
-
-@mixin respond-500-width {
-  @media (max-width: 31.25em) { @content };
+@mixin respond-400-width {
+  @media (max-width: 25em) { @content };
 }

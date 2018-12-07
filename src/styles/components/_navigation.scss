@@ -1,14 +1,23 @@
 .nav-wrapper {
   background-color: transparent;
-  padding: 2rem;
+  padding: 2rem 4rem;
   position: absolute;
   width: 100%;
   z-index: 1;
 }
 
 .nav {
+  display: flex;
   margin: 0 auto;
   width: $grid-width;
+
+  @media (max-width: 71.25em) {
+    width: 100%;
+  }
+  
+  @include respond-700-width {
+    justify-content: space-between;
+  }
 
   &__link, &__link:active {
     border: 1px solid transparent;
@@ -22,6 +31,7 @@
 
   &__link:not(:last-child) {
     margin-right: 2rem;
+    padding-left: 0;
   }
 
   &__link:not(:first-child) {

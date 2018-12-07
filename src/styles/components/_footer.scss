@@ -5,6 +5,8 @@
   &-wrapper {
     margin: 0 auto;
     width: $grid-width;
+
+    @include respond-1140-width {}
   }
 
   &__center {
@@ -18,11 +20,20 @@
   &__bottom {
     display: flex;
     justify-content: space-between;
+
+    @include respond-665-width {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   &__left, &__right {
     color: $white;
     font-size: $d-font;
+
+    @include respond-665-width {
+      text-align: center;
+    }
 
     .social-media {
       color: $white;

@@ -7,11 +7,24 @@
     margin: 0 auto;
     padding: 4rem;
     width: $grid-width;
+
+    @include respond-1140-width {}
+
+    @include respond-400-width {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   .stat {
     text-align: center;
     width: 24.1rem;
+
+    &:not(:last-child) {
+      @include respond-400-width {
+        margin-bottom: 3rem;
+      }
+    }
 
     &--primary {
       color: $aquamarine;

@@ -2,8 +2,11 @@
   background-color: $white;
   border-radius: 5px;
   display: flex;
+  justify-content: space-between;
   padding: 2rem;
   width: 100%;
+
+
 
   &-loader-box {
     display: flex;
@@ -16,6 +19,7 @@
   &-selection {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     margin-right: 5rem;
   }
 
@@ -25,7 +29,6 @@
     justify-content: space-between;
     display: flex;
     padding: 4rem 2rem;
-    width: 65rem;
 
     &:not(:last-child) {
       border-bottom-color: $athens-gray;
@@ -89,6 +92,7 @@
 
     &:focus {
       border-color: $minsk;
+      text-align: left;
       outline: none;
     }
   }
@@ -113,6 +117,7 @@
   }
 
   &__line-total {
+    text-align: right;
     width: 11.1rem;
   }
 

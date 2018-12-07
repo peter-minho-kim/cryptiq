@@ -2,6 +2,8 @@
   margin: 0 auto;
   width: $grid-width;
 
+  @include respond-1140-width {}
+
   &__heading-secondary {
     color: $east-bay;
     font-size: $xxl-font;
@@ -17,6 +19,11 @@
     display: flex;
     justify-content: space-around;
 
+    @include respond-950-width {
+      align-items: center;
+      flex-direction: column;
+    }
+
     &__card {
       border-radius: 1rem;
       -webkit-box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.15);
@@ -24,6 +31,12 @@
       padding: 2rem;
       text-align: center;
       width: 32rem;
+
+      &:not(:last-child) {
+        @include respond-950-width {
+          margin-bottom: 5rem;
+        }
+      }
 
       .benefit-card-img {
         width: 10rem;

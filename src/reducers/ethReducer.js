@@ -1,4 +1,4 @@
-const ethReducer = (state = { eth: 0 }, action) => {
+const ethReducer = (state = { eth: '' }, action) => {
   switch (action.type) {
     case 'INCREMENT_ETH':
       return {

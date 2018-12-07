@@ -1,4 +1,4 @@
-const btcReducer = (state = { btc: 0 }, action) => {
+const btcReducer = (state = { btc: '' }, action) => {
   switch (action.type) {
     case 'INCREMENT_BTC':
       return {

@@ -10,6 +10,10 @@
     flex-direction: column;
   }
 
+  @include respond-700-width {
+    padding: 0;
+  }
+
   &-loader-box {
     display: flex;
     justify-content: center;

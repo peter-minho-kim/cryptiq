@@ -45,7 +45,7 @@ class Payment extends React.Component {
   onNameChange(e) {
     const name = e.target.value
     if (name.match(/^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/) || name === '') {
-      this.setState(() => ({ ccName: name }))
+      this.setState(() => ({ ccName: name.toUpperCase() }))
     }
   }
   onCCOneChange(e) {
@@ -118,7 +118,7 @@ class Payment extends React.Component {
               <span className="mock-cc-no mock-cc-no--4">{this.state.ccInputFour ? this.state.ccInputFour : '9123'}</span>
             </div>
             <div className="mock-name-exp">
-              <p className="mock-name-exp__name" ref="mockName">{this.state.ccName ? this.state.ccName : 'Your Name'}</p>
+              <p className="mock-name-exp__name" ref="mockName">{this.state.ccName ? this.state.ccName : 'YOUR NAME'}</p>
               <p className="mock-name-exp__date">
                 {this.state.ccMonth ? this.state.ccMonth : 'MM'} / {this.state.ccYear ? this.state.ccYear : 'YY'}
               </p>
@@ -147,7 +147,7 @@ class Payment extends React.Component {
             id="cc-name" 
             value={this.state.ccName}
             onChange={this.onNameChange}
-            placeholder="Your Name" 
+            placeholder="YOUR NAME" 
             autoComplete="off"
             required
           />

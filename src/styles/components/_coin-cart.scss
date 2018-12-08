@@ -19,6 +19,15 @@
     justify-content: center;
     margin-right: 5rem;
     width: 65rem;
+
+    @include respond-1020-width {
+      margin: 0;
+      width: 100%;
+
+      .coin-cart-loader {
+        width: 80%;
+      }
+    }
   }
 
   &-selection {

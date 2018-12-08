@@ -37,6 +37,10 @@ This project is licensed under the MIT License.
 ### Code
 - [Fade in Animations](http://animista.net)
 
+### Design
+- [ICO Landing Page for Gambling](https://dribbble.com/shots/4816493-ICO-Landing-Page-for-Gambling)
+- [Shopping Cart UI](https://dribbble.com/shots/4828084-Shopping-Cart-UI)
+
 ### Images
 - [Best](https://thenounproject.com/search/?q=best&creator=1145943&i=1899025)
 - [Bitcoin](https://thenounproject.com/search/?q=bitcoin&creator=2128292&i=813130)

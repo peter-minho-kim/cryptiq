@@ -1,3 +1,7 @@
 .thank-you-page-wrapper {
   @include wrapper;
+
+  @include respond-1020-width {
+    width: 100%;
+  }
 }

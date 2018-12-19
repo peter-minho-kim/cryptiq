@@ -101,7 +101,7 @@ const HomePage = () => (
         </div>
         <div className="footer__bottom">
           <div className="footer__left">
-            <i className="fas fa-code"></i> Peter Kim       
+            Created by <a href="http://www.peterkim.io/">Peter Kim</a>      
             <a href="https://www.linkedin.com/in/peter-kim-developer/" className="social-media" target="_blank"><i className="fab fa-linkedin"></i></a>
             <a href="https://github.com/peter-minho-kim" className="social-media" target="_blank"><i className="fab fa-github"></i></a>
             <br/>

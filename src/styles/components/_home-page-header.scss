@@ -62,16 +62,21 @@
       }
 
       &__icon {
-        animation: floatUpAndDown 3.5s ease-in-out infinite;
-        transform: translateY(-25%);
+        -webkit-animation: floatUpAndDown 3.5s ease-in-out infinite;
+                animation: floatUpAndDown 3.5s ease-in-out infinite;
+        -webkit-transform: translateY(-25%);
+            -ms-transform: translateY(-25%);
+                transform: translateY(-25%);
         text-align: center;
         
         &--2 {
-          animation-delay: .3s;
+          -webkit-animation-delay: .3s;
+                  animation-delay: .3s;
         }
 
         &--3 {
-          animation-delay: .6s;
+          -webkit-animation-delay: .6s;
+                  animation-delay: .6s;
         }
 
         .crypto-icon-img {

@@ -2,9 +2,21 @@
 ### Introduction
 CryptiQ is a (mock) cryptocurrency e-commerce platform that takes the user through an intuitive and unequivocal process of purchasing Bitcoin, Ethereum, and Iota. 
 
-![Lucidity Home Page](./public/images/home-page.png)
+![Cryptiq Home Page](./public/images/home-page.png)
 
-![Lucidity Home Page](./public/images/cart.png)
+![Cryptiq Checkout Page](./public/images/cart.png)
+
+## Home Page Prototype
+![Cryptiq Home Page Wireframe](./public/images/Home-Page-wireframe.png)
+
+## Checkout Page Prototype
+![Cryptiq Checkout Page Wireframe](./public/images/Checkout-Page-wireframe.png)
+
+## Thank You Page Prototype
+![Cryptiq Thank You Page Wireframe](./public/images/Thank-You-Page-wireframe.png)
+
+## User Flow
+![Cryptiq User Flow](./public/images/cryptiq-userflow.png)
 
 ## Getting Started
 ### Installing
